@@ -28,10 +28,10 @@ export const navLinks: NavLink[] = [
     path: '/projects',
   },
   
-  {
-    title: 'Media',
-    path: '/media',
-  },
+  // {
+  //   title: 'Media',
+  //   path: '/media',
+  // },
   {
     title: 'Careers',
     path: '/careers',

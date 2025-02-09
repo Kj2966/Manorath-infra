@@ -9,16 +9,14 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "react-scripts start --host"
-
-
   },
   "dependencies": {
-    "framer-motion": "^11.0.8",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-countup": "^6.5.0",
     "react-dom": "^18.3.1",
-    "react-hot-toast": "^2.4.1",
+    "react-hot-toast": "^2.5.1",
     "react-intersection-observer": "^9.8.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.22.2",
