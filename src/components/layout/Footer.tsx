@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-6">GR Construction</h3>
+            <h3 className="text-2xl font-bold mb-6">Manorath Infra</h3>
             <p className="text-gray-300 mb-6">
               Building tomorrow's infrastructure with innovation, quality, and sustainability at our core.
             </p>
@@ -118,7 +118,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} GR Construction. All rights reserved.
+              © {new Date().getFullYear()} Manorath Infra . All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link to="/privacy" className="text-gray-400 hover:text-construction-yellow text-sm transition-colors">
