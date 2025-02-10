@@ -35,7 +35,7 @@ const ProjectDetail: React.FC = () => {
     const fetchProject = async () => {
       const mockProjects: Record<string, Project> = {
         'modern-office-complex': {
-          id: 'modern-office-complex',
+          id: '1',
           title: 'Modern Office Complex',
           category: 'commercial',
           location: 'New York, NY',
