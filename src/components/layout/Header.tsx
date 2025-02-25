@@ -33,7 +33,7 @@ const Header = () => {
               className="h-20 mr-0"
             />
             <span className={`text-3xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-sans`}>
-              Manorath Infra
+              Manorath Infra..
             </span>
           </Link>
 
