@@ -117,7 +117,7 @@ const About = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
               >
-                Building <span className="text-emerald-400">Tomorrow's</span>
+                Building <span className="text-[rgb(81,144,210)]">Tomorrow's</span>
                 <br className="hidden sm:block" />World Today
               </motion.h1>
               <motion.p
@@ -136,7 +136,8 @@ const About = () => {
               >
                 <motion.a
                   href="#mission"
-                  className="text-emerald-400 flex items-center gap-2 hover:text-emerald-300 transition-colors"
+                  className="text-[rgb(81,144,210)] flex items-center gap-2 hover:text-emerald-300 transition-colors"
+                 
                   whileHover={{ y: 3 }}
                 >
                   Scroll to explore
@@ -204,7 +205,7 @@ const About = () => {
                 className="group p-6 sm:p-8 rounded-2xl bg-white hover:bg-gray-50 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="mb-6">
-                  <value.icon className="w-12 h-12 text-emerald-500 group-hover:scale-110 transition-transform duration-300" />
+                  <value.icon className="w-12 h-12 text-[rgb(81,144,210)] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
@@ -247,7 +248,7 @@ const About = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 flex items-center mx-auto"
+              className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 shadow-lg hover:shadow-[rgb(81,144,210)]/25 flex items-center mx-auto"
             >
               Join Our Team
               <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -290,7 +291,7 @@ const About = () => {
                       whileInView={{ scale: 1 }}
                       transition={{ duration: 0.5 }}
                       viewport={{ once: true }}
-                      className="text-4xl font-bold text-emerald-500 mb-2"
+                      className="text-4xl font-bold text-[rgb(81,144,210)] mb-2"
                     >
                       500+
                     </motion.div>
@@ -302,7 +303,7 @@ const About = () => {
                       whileInView={{ scale: 1 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
                       viewport={{ once: true }}
-                      className="text-4xl font-bold text-emerald-500 mb-2"
+                      className="text-4xl font-bold text-[rgb(81,144,210)] mb-2"
                     >
                       25+
                     </motion.div>
@@ -373,13 +374,13 @@ const About = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-xl font-bold text-white mb-1">{leader.name}</h3>
-                    <p className="text-emerald-300 mb-3">{leader.role}</p>
+                    <p className="text-[rgb(81,144,210)] mb-3">{leader.role}</p>
                     <p className="text-gray-200 text-sm italic mb-4">"{leader.quote}"</p>
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setSelectedLeader(leader)}
-                      className="px-4 py-2 bg-emerald-500 text-white text-sm font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300"
+                      className="px-4 py-2 bg-[rgb(81,144,210)] text-white text-sm font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300"
                     >
                       View Profile
                     </motion.button>
@@ -425,7 +426,7 @@ const About = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-2xl font-bold text-white mb-1">{selectedLeader.name}</h3>
-                    <p className="text-emerald-300">{selectedLeader.role}</p>
+                    <p className="text-[rgb(81,144,210)]">{selectedLeader.role}</p>
                   </div>
                 </div>
 
@@ -435,7 +436,7 @@ const About = () => {
                     
                     <div className="space-y-4 mb-6">
                       <div className="flex items-start">
-                        <Briefcase className="w-6 h-6 text-emerald-500 mr-3 flex-shrink-0 mt-1" />
+                        <Briefcase className="w-6 h-6 text-[rgb(81,144,210)] mr-3 flex-shrink-0 mt-1" />
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-1">Experience</h4>
                           <p className="text-gray-600">{selectedLeader.details.experience}</p>
@@ -443,7 +444,7 @@ const About = () => {
                       </div>
                       
                       <div className="flex items-start">
-                        <Shield className="w-6 h-6 text-emerald-500 mr-3 flex-shrink-0 mt-1" />
+                        <Shield className="w-6 h-6 text-[rgb(81,144,210)] mr-3 flex-shrink-0 mt-1" />
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-1">Education</h4>
                           <p className="text-gray-600">{selectedLeader.details.education}</p>
@@ -453,15 +454,15 @@ const About = () => {
 
                     <div className="border-t pt-6 space-y-3">
                       <div className="flex items-center text-gray-600">
-                        <Mail className="w-5 h-5 text-emerald-500 mr-3" />
+                        <Mail className="w-5 h-5 text-[rgb(81,144,210)] mr-3" />
                         {selectedLeader.details.email}
                       </div>
                       <div className="flex items-center text-gray-600">
-                        <Phone className="w-5 h-5 text-emerald-500 mr-3" />
+                        <Phone className="w-5 h-5 text-[rgb(81,144,210)] mr-3" />
                         {selectedLeader.details.phone}
                       </div>
                       <div className="flex items-center text-gray-600">
-                        <MapPin className="w-5 h-5 text-emerald-500 mr-3" />
+                        <MapPin className="w-5 h-5 text-[rgb(81,144,210)] mr-3" />
                         {selectedLeader.details.location}
                       </div>
                     </div>

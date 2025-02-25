@@ -81,14 +81,14 @@ const Contact = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
                   href={`tel:${contactInfo.phone.main}`}
-                  className="px-8 py-3 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 transition-colors inline-flex items-center justify-center"
+                  className="px-8 py-3 bg-[rgb(81,144,210)] text-white font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-colors inline-flex items-center justify-center"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Call Now
                 </a>
                 <a 
                   href="#contact-form"
-                  className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-colors inline-flex items-center justify-center"
+                  className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-colors inline-flex items-center justify-center"
                 >
                   <Mail className="w-5 h-5 mr-2" />
                   Send Message
@@ -123,12 +123,12 @@ const Contact = () => {
               className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 group"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-emerald-500 rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Building className="w-10 h-10 text-white" />
+                <div className="p-4 bg-white rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Building className="w-10 h-10 text-[rgb(81,144,210)]" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Visit Our Office</h3>
                 <div className="space-y-2 text-gray-300">
-                  <p className="group-hover:text-emerald-400 transition-colors">{contactInfo.address.main}</p>
+                  <p className="group-hover:text-[rgb(81,144,210)] transition-colors">{contactInfo.address.main}</p>
                   <p>{contactInfo.address.city}</p>
                   <p>{contactInfo.address.country}</p>
                 </div>
@@ -142,7 +142,7 @@ const Contact = () => {
                     href="https://maps.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-400 transition-colors"
+                    className="inline-flex items-center px-4 py-2 bg-[rgb(81,144,210)] text-white rounded-lg font-semibold hover:bg-[rgb(81,144,210)] transition-colors"
                   >
                     <MapPin className="w-5 h-5 mr-2" />
                     Get Directions
@@ -159,11 +159,11 @@ const Contact = () => {
                 scale: 1.03,
                 boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
               }}
-              className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl shadow-xl p-8 transform transition-all duration-300 group"
+              className="bg-gradient-to-br from-[rgb(81,144,210)] to-[rgb(81,144,210)] rounded-2xl shadow-xl p-8 transform transition-all duration-300 group"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="p-4 bg-white rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-10 h-10 text-emerald-500" />
+                  <Phone className="w-10 h-10 text-gray-900" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Call Us</h3>
                 <div className="space-y-2 text-gray-100">
@@ -180,7 +180,7 @@ const Contact = () => {
                 >
                   <a
                     href={`tel:${contactInfo.phone.main}`}
-                    className="inline-flex items-center px-4 py-2 bg-white text-emerald-500 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                    className="inline-flex items-center px-4 py-2 bg-gray-900 text-white rounded-lg font-semibold hover:bg-[rgb(81,144,210)] transition-colors"
                   >
                     <Phone className="w-5 h-5 mr-2" />
                     Call Now
@@ -200,12 +200,12 @@ const Contact = () => {
               className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-xl p-8 transform transition-all duration-300 group"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="p-4 bg-emerald-500 rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Clock className="w-10 h-10 text-white" />
+                <div className="p-4 bg-white rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="w-10 h-10 text-[rgb(81,144,210)]" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Business Hours</h3>
                 <div className="space-y-2 text-gray-300">
-                  <p className="group-hover:text-emerald-400 transition-colors">
+                  <p className="group-hover:text-[rgb(81,144,210)] transition-colors">
                     {contactInfo.hours.weekday}
                   </p>
                   <p>{contactInfo.hours.weekend}</p>
@@ -218,7 +218,7 @@ const Contact = () => {
                   className="mt-6"
                 >
                   <button
-                    className="inline-flex items-center px-4 py-2 bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-400 transition-colors"
+                    className="inline-flex items-center px-4 py-2 bg-[rgb(81,144,210)] text-white rounded-lg font-semibold hover:bg-[rgb(81,144,210)] transition-colors"
                   >
                     <Clock className="w-5 h-5 mr-2" />
                     View Schedule
@@ -279,7 +279,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(81,144,210)] focus:border-transparent"
                     placeholder="John Doe"
                   />
                 </div>
@@ -294,7 +294,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(81,144,210)] focus:border-transparent"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -311,7 +311,7 @@ const Contact = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(81,144,210)] focus:border-transparent"
                     placeholder="+1 (123) 456-7890"
                   />
                 </div>
@@ -325,7 +325,7 @@ const Contact = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(81,144,210)] focus:border-transparent"
                     placeholder="Your Company Ltd."
                   />
                 </div>
@@ -342,7 +342,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(81,144,210)] focus:border-transparent"
                     placeholder="Project Inquiry"
                   />
                 </div>
@@ -355,7 +355,7 @@ const Contact = () => {
                     name="projectType"
                     value={formData.projectType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(81,144,210)] focus:border-transparent"
                   >
                     <option value="residential">Residential Construction</option>
                     <option value="commercial">Commercial Construction</option>
@@ -377,13 +377,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[rgb(81,144,210)] focus:border-transparent"
                   placeholder="Please describe your project requirements..."
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full px-6 py-4 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 transition-colors flex items-center justify-center text-lg"
+                className="w-full px-6 py-4 bg-[rgb(81,144,210)] text-white font-semibold rounded-lg hover:bg-[rgb(81,144,210)] transition-colors flex items-center justify-center text-lg"
               >
                 <Send className="w-6 h-6 mr-2" />
                 Send Message

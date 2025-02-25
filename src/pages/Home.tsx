@@ -69,7 +69,7 @@ const Home = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-                  Crafting <span className="text-emerald-400">Excellence</span>
+                  Crafting <span className="text-[rgb(81,144,210)]">Excellence</span>
                   <br className="hidden sm:block" />in Construction
                 </h1>
               </motion.div>
@@ -87,7 +87,7 @@ const Home = () => {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4 sm:gap-6"
               >
-                <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center">
+                <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center">
                   Start Your Project
                   <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
@@ -106,7 +106,7 @@ const Home = () => {
               key={index}
               onClick={() => setCurrentHeroImage(index)}
               className={`h-2 transition-all duration-300 rounded-full ${
-                currentHeroImage === index ? 'w-8 sm:w-12 bg-emerald-500' : 'w-2 bg-white/50'
+                currentHeroImage === index ? 'w-8 sm:w-12 bg-[rgb(81,144,210)]' : 'w-2 bg-white/50'
               }`}
             />
           ))}
@@ -170,7 +170,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 className="p-6 sm:p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"
               >
-                <feature.icon className="w-10 h-10 sm:w-12 sm:h-12 text-emerald-500 mb-4 sm:mb-6" />
+                <feature.icon className="w-10 h-10 sm:w-12 sm:h-12 text-[rgb(81,144,210)] mb-4 sm:mb-6" />
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{feature.title}</h3>
                 <p className="text-gray-600 text-sm sm:text-base">{feature.description}</p>
               </motion.div>
@@ -198,23 +198,25 @@ const Home = () => {
                   scale: 1.05,
                   rotateX: 5,
                   rotateY: 5,
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
                 }}
                 className="relative overflow-hidden text-center p-6 sm:p-8 rounded-xl border border-white/10 shadow-2xl bg-white/5 backdrop-blur-lg"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[rgb(81,144,210)]/10 to-transparent" />
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={inView ? { scale: 1, rotate: 360 } : {}}
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   className="relative"
                 >
-                  <stat.icon className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 text-emerald-400" />
+                  <stat.icon className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 text-[rgb(81,144,210)]" />
                 </motion.div>
                 <div className="relative">
                   <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-3">
                     {inView && <CountUp end={stat.value} duration={2.5} />}+
                   </div>
-                  <div className="text-emerald-200 text-base sm:text-lg font-medium">{stat.label}</div>
+                  <div className="text-gray-300 text-base sm:text-lg font-medium">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -274,7 +276,7 @@ const Home = () => {
                     <div className="absolute bottom-0 p-4 sm:p-6">
                       <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">{highlight.title}</h3>
                       <p className="text-sm sm:text-base text-gray-200 mb-4">{highlight.description}</p>
-                      <button className="flex items-center text-emerald-400 hover:text-emerald-300 transition-colors text-sm sm:text-base">
+                      <button className="flex items-center text-[rgb(81,144,210)] hover:text-[rgb(81,144,210)]/80 transition-colors text-sm sm:text-base bg-yellow-200">
                         Learn More <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                       </button>
                     </div>
@@ -310,7 +312,7 @@ const Home = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 shadow-lg hover:shadow-[rgb(81,144,210)]/25"
             >
               Schedule a Consultation
             </motion.button>

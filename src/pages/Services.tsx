@@ -81,7 +81,7 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
               >
-                Expert <span className="text-emerald-400">Construction</span>
+                Expert <span className="text-[rgb(81,144,210)]">Construction</span>
                 <br className="hidden sm:block" />Services
               </motion.h1>
               <motion.p
@@ -100,7 +100,7 @@ const Services = () => {
               >
                 <motion.a
                   href="#services"
-                  className="text-emerald-400 flex items-center gap-2 hover:text-emerald-300 transition-colors"
+                  className="text-[rgb(81,144,210)] flex items-center gap-2 hover:text-[rgb(81,144,210)]/80 transition-colors"
                   whileHover={{ y: 3 }}
                 >
                   Explore our services
@@ -153,7 +153,7 @@ const Services = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <service.icon className="w-8 h-8 text-emerald-400 mb-2" />
+                    <service.icon className="w-8 h-8 text-[rgb(81,144,210)] mb-2" />
                     <h3 className="text-xl font-bold text-white mb-1">{service.title}</h3>
                   </div>
                 </div>
@@ -162,10 +162,10 @@ const Services = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="group px-4 py-2 bg-emerald-500 text-white text-sm font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 flex items-center gap-2"
+                    className="group px-4 py-2 bg-[rgb(81,144,210)] text-white text-sm font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 flex items-center gap-2"
                   >
                     Learn More
-                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <ArrowUpRight className="w-4 h-4 text-[rgb(81,144,210)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </motion.button>
                 </div>
               </motion.div>
@@ -208,7 +208,7 @@ const Services = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25 flex items-center mx-auto"
+              className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 shadow-lg hover:shadow-[rgb(81,144,210)]/25 flex items-center mx-auto"
             >
               Contact Us Today
               <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

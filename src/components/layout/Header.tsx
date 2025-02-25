@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Search, Phone, ChevronDown, MapPin } from 'lucide-react';
 import { navLinks } from '../../data/navigation';
+import Logo from '../../assets/img/MNLogo.png'
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,43 +18,21 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
+    <header className={`fixed w-full z-50 transition-all duration-300 h-24 ${
       isScrolled 
         ? 'bg-white/95 backdrop-blur-md shadow-lg' 
         : 'bg-gradient-to-b from-black/50 to-transparent'
     }`}>
-      {/* Top Bar */}
-      {/* <div className={`transition-all duration-300 ${
-        isScrolled ? 'h-0 opacity-0' : 'h-10 opacity-100'
-      } bg-gradient-to-r from-gray-900 to-gray-800 overflow-hidden`}>
-        <div className="container mx-auto px-4 h-full">
-          <div className="flex items-center justify-between h-full text-gray-300 text-sm">
-            <div className="flex items-center gap-6">
-              <div className="flex items-center">
-                <MapPin className="w-4 h-4 mr-2" />
-                Nathdwara , Raj
-              </div>
-              <div className="hidden md:flex items-center">
-                <Phone className="w-4 h-4 mr-2" />
-                (555) 123-4567
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <a href="#" className="hover:text-white transition-colors">Careers</a>
-              <a href="#" className="hover:text-white transition-colors">News</a>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       {/* Main Navigation */}
       <nav className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-4">
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center">
-              <span className="text-xl font-bold text-white">MI</span>
-            </div>
-            <span className={`text-2xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+        <div className="flex items-center justify-between h-full">
+          <Link to="/" className="flex items-center">
+            <img 
+              src={Logo} 
+              alt="Manorath Infra Logo" 
+              className="h-20 mr-0"
+            />
+            <span className={`text-3xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-sans`}>
               Manorath Infra
             </span>
           </Link>
@@ -156,7 +135,7 @@ const Header = () => {
                   </div>
                 ))}
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+919672671173"
                   className="mt-4 flex items-center justify-center px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg"
                 >
                   <Phone className="w-4 h-4 mr-2" />

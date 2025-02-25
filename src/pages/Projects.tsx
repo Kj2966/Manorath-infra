@@ -141,7 +141,7 @@ const Projects = () => {
             className="max-w-4xl"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
-              Our <span className="text-emerald-400">Portfolio</span>
+              Our <span className="text-[rgb(81,144,210)]">Portfolio</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-200 max-w-2xl">
               Discover our landmark projects that showcase innovation, precision, and excellence in construction.
@@ -163,7 +163,7 @@ const Projects = () => {
                 transition={{ delay: 0.5 + index * 0.1 }}
                 className="backdrop-blur-md bg-white/10 rounded-xl p-4 sm:p-6 border border-white/20"
               >
-                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-emerald-400 mb-2 sm:mb-4" />
+                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-[rgb(81,144,210)] mb-2 sm:mb-4" />
                 <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">{stat.value}</div>
                 <div className="text-sm sm:text-base text-emerald-200">{stat.label}</div>
               </motion.div>
@@ -190,7 +190,7 @@ const Projects = () => {
                 whileTap={{ scale: 0.95 }}
                 className={`px-4 sm:px-8 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 ${
                   filter === category
-                    ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/25'
+                    ? 'bg-[rgb(81,144,210)] text-white shadow-lg shadow-[rgb(81,144,210)]/25'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
@@ -239,14 +239,14 @@ const Projects = () => {
                     />
                     
                     {/* Category Badge */}
-                    <div className="absolute top-4 right-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/90 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold text-emerald-600">
+                    <div className="absolute top-4 right-4 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/90 backdrop-blur-sm rounded-full text-xs sm:text-sm font-semibold text-[rgb(81,144,210)]">
                       {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
                     </div>
                   </div>
 
                   <div className="p-4 sm:p-8">
                     <div className="flex justify-between items-start mb-3 sm:mb-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-[rgb(81,144,210)] transition-colors">
                         {project.title}
                       </h3>
                       <motion.div
@@ -269,7 +269,7 @@ const Projects = () => {
                     <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-4 sm:mb-6">
                       {Object.entries(project.stats).map(([key, value], i) => (
                         <div key={key} className="bg-gray-50 p-2 sm:p-3 rounded-lg">
-                          <div className="text-sm sm:text-base text-emerald-600 font-semibold">{value}</div>
+                          <div className="text-sm sm:text-base text-[rgb(81,144,210)] font-semibold">{value}</div>
                           <div className="text-xs sm:text-sm text-gray-500 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}</div>
                         </div>
                       ))}
@@ -277,11 +277,11 @@ const Projects = () => {
 
                     <div className="space-y-2 sm:space-y-3 text-sm sm:text-base text-gray-600">
                       <div className="flex items-center">
-                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-emerald-500" />
+                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[rgb(81,144,210)]" />
                         <span>{project.location}</span>
                       </div>
                       <div className="flex items-center">
-                        <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-emerald-500" />
+                        <Calendar className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 text-[rgb(81,144,210)]" />
                         <span>{project.year}</span>
                       </div>
                     </div>
@@ -294,12 +294,12 @@ const Projects = () => {
                       }}
                       className="mt-4 sm:mt-6 flex items-center justify-between"
                     >
-                      <span className="text-sm sm:text-base text-emerald-500 font-semibold">View Project Details</span>
+                      <span className="text-sm sm:text-base text-[rgb(81,144,210)] font-semibold">View Project Details</span>
                       <motion.div
                         animate={{ x: hoveredProject === project.id ? 5 : 0 }}
-                        className="bg-emerald-100 p-1.5 sm:p-2 rounded-full"
+                        className="bg-[rgb(81,144,210)] p-1.5 sm:p-2 rounded-full"
                       >
-                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </motion.div>
                     </motion.div>
                   </div>

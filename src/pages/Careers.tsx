@@ -86,7 +86,7 @@ const Careers = () => {
           >
             <div className="backdrop-blur-sm p-8 rounded-2xl">
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Build Your <span className="text-emerald-400">Future</span>
+                Build Your <span className="text-[rgb(81,144,210)]">Future</span>
                 <br />With Us
               </h1>
               <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl">
@@ -95,7 +95,7 @@ const Careers = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-6 sm:px-8 py-3 sm:py-4 bg-emerald-500 text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 flex items-center"
+                className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 flex items-center"
               >
                 View Open Positions
                 <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -134,7 +134,7 @@ const Careers = () => {
                   transition={{ duration: 0.8, delay: index * 0.2 }}
                   className="relative"
                 >
-                  <stat.icon className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 text-emerald-400" />
+                  <stat.icon className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 text-[rgb(81,144,210)]" />
                 </motion.div>
                 <div className="relative">
                   <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-3">
@@ -214,15 +214,15 @@ const Careers = () => {
                     <p className="text-gray-600 mb-4">{job.description}</p>
                     <div className="flex flex-wrap gap-4 text-gray-600">
                       <span className="inline-flex items-center">
-                        <Briefcase className="w-4 h-4 mr-2 text-emerald-500" />
+                        <Briefcase className="w-4 h-4 mr-2 text-[rgb(81,144,210)]" />
                         {job.department}
                       </span>
                       <span className="inline-flex items-center">
-                        <MapPin className="w-4 h-4 mr-2 text-emerald-500" />
+                        <MapPin className="w-4 h-4 mr-2 text-[rgb(81,144,210)]" />
                         {job.location}
                       </span>
                       <span className="inline-flex items-center">
-                        <Clock className="w-4 h-4 mr-2 text-emerald-500" />
+                        <Clock className="w-4 h-4 mr-2 text-[rgb(81,144,210)]" />
                         {job.experience}
                       </span>
                     </div>
@@ -230,7 +230,7 @@ const Careers = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="mt-4 md:mt-0 px-6 py-2 bg-emerald-500 text-white font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 flex items-center justify-center"
+                    className="mt-4 md:mt-0 px-6 py-2 bg-[rgb(81,144,210)] text-white font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 flex items-center justify-center"
                   >
                     Apply Now
                     <ArrowUpRight className="w-5 h-5 ml-2" />
@@ -268,7 +268,7 @@ const Careers = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-emerald-500 text-white text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25"
+              className="px-8 py-4 bg-[rgb(81,144,210)] text-white text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 shadow-lg hover:shadow-[rgb(81,144,210)]/25"
             >
               Submit Your Resume
             </motion.button>
