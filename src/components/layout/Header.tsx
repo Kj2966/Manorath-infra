@@ -30,9 +30,9 @@ const Header = () => {
             <img 
               src={Logo} 
               alt="Manorath Infra Logo" 
-              className="h-20 mr-0"
+              className="h-20 mr-0 -ml-6 md:-ml-8"
             />
-            <span className={`text-3xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-sans`}>
+            <span className={`text-4xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-sans`}>
               Manorath Infra..
             </span>
           </Link>
