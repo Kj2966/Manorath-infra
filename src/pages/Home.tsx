@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, Shield, Clock, Users, Award, CheckCircle2, Briefcase, Building2, Workflow, ArrowRight } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const [ref, inView] = useInView({
@@ -34,6 +35,23 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Manorath Infra",
+              "url": "https://www.yourwebsite.com",
+              "logo": "https://www.yourwebsite.com/logo.png",
+              "sameAs": [
+                "https://www.facebook.com/yourprofile",
+                "https://www.twitter.com/yourprofile"
+              ]
+            }
+          `}
+        </script>
+      </Helmet>
       {/* Hero Section with Dynamic Image Carousel */}
       <section className="relative h-[100svh] overflow-hidden">
         <AnimatePresence mode="wait">

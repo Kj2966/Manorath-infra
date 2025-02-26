@@ -13,9 +13,17 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ProjectDetail from './pages/ProjectDetail';
-function App() {
+import { Helmet } from 'react-helmet';
+
+const App = () => {
   return (
     <Router>
+      <Helmet>
+        <title>Manorath Infra - Building Tomorrow's Infrastructure</title>
+        <meta name="description" content="Manorath Infra specializes in innovative infrastructure solutions, delivering quality and sustainability." />
+        <meta name="keywords" content="Manorath Infra, infrastructure, construction, quality, sustainability" />
+        <meta name="author" content="Manorath Infra" />
+      </Helmet>
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-grow">
@@ -37,6 +45,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
