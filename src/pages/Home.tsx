@@ -42,11 +42,11 @@ const Home = () => {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Manorath Infra",
-              "url": "https://www.yourwebsite.com",
-              "logo": "https://www.yourwebsite.com/logo.png",
+              "url": "https://www.manorathinfra.com",
+            
               "sameAs": [
-                "https://www.facebook.com/yourprofile",
-                "https://www.twitter.com/yourprofile"
+                "https://www.facebook.com/manorathinfra?mibextid=ZbWKwL",
+                "https://www.instagram.com/manorathinfra?igsh=MWxyNjloZ295d2h5eg=="
               ]
             }
           `}
