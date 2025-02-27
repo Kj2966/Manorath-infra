@@ -140,7 +140,7 @@ const Projects = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-4xl"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 mt-4 sm:mt-8">
               Our <span className="text-[rgb(81,144,210)]">Portfolio</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl">
