@@ -1,20 +1,41 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Text } from '@react-three/drei';
+import { OrbitControls, Text, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
-const HouseModel = ({ stage, setStage }) => {
+const HouseModel = React.memo(({ stage, setStage }) => {
   const houseRef = useRef();
 
+  const geometries = useMemo(() => ({
+    foundation: new THREE.BoxGeometry(5, 0.5, 5),
+    wall: new THREE.BoxGeometry(4, 2.5, 4),
+    window: new THREE.BoxGeometry(0.8, 1, 0.1),
+    roof: new THREE.ConeGeometry(3, 2, 4),
+  }), []);
+
+  const materials = useMemo(() => ({
+    base: new THREE.MeshStandardMaterial({
+      metalness: 0.5,
+      roughness: 0.7,
+    }),
+    glass: new THREE.MeshPhysicalMaterial({
+      color: '#87CEEB',
+      metalness: 0.9,
+      roughness: 0.1,
+      transparent: true,
+      opacity: 0.7,
+      envMapIntensity: 1,
+    }),
+  }), []);
+
   useFrame((state) => {
+    if (!houseRef.current) return;
     const angle = state.pointer.x * Math.PI / 8;
-    if (houseRef.current) {
-      houseRef.current.rotation.y = THREE.MathUtils.lerp(
-        houseRef.current.rotation.y,
-        angle,
-        0.1
-      );
-    }
+    houseRef.current.rotation.y = THREE.MathUtils.lerp(
+      houseRef.current.rotation.y,
+      angle,
+      0.1
+    );
   });
 
   const stages = [
@@ -175,10 +196,32 @@ const HouseModel = ({ stage, setStage }) => {
       ))}
     </group>
   );
-};
+});
 
 const ProcessHouse = () => {
   const [stage, setStage] = useState(0);
+
+  const staticElements = useMemo(() => (
+    <>
+      <color attach="background" args={['#1a1a1a']} />
+      <ambientLight intensity={0.5} />
+      <pointLight 
+        position={[10, 10, 10]} 
+        intensity={1} 
+        castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+      />
+      <directionalLight
+        position={[5, 5, 5]}
+        intensity={1}
+        castShadow
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+      />
+      <gridHelper args={[20, 20, '#4d4d4d', '#4d4d4d']} />
+    </>
+  ), []);
 
   return (
     <div className="relative h-[600px] w-full">
@@ -186,30 +229,20 @@ const ProcessHouse = () => {
         shadows
         camera={{ position: [10, 10, 10], fov: 45 }}
         className="w-full h-full"
+        dpr={[1, 2]}
+        performance={{ min: 0.5 }}
       >
-        <color attach="background" args={['#1a1a1a']} />
-        <ambientLight intensity={0.5} />
-        <pointLight 
-          position={[10, 10, 10]} 
-          intensity={1} 
-          castShadow
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-        />
-        <directionalLight
-          position={[5, 5, 5]}
-          intensity={1}
-          castShadow
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-        />
-        <HouseModel stage={stage} setStage={setStage} />
-        <OrbitControls
-          enableZoom={false}
-          minPolarAngle={Math.PI / 4}
-          maxPolarAngle={Math.PI / 2}
-        />
-        <gridHelper args={[20, 20, '#4d4d4d', '#4d4d4d']} />
+        <Suspense fallback={null}>
+          {staticElements}
+          <HouseModel stage={stage} setStage={setStage} />
+          <OrbitControls
+            enableZoom={false}
+            minPolarAngle={Math.PI / 4}
+            maxPolarAngle={Math.PI / 2}
+            enableDamping={true}
+            dampingFactor={0.05}
+          />
+        </Suspense>
       </Canvas>
 
       {/* Stage Information Overlay */}

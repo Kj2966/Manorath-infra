@@ -26,6 +26,8 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         heading: ['Montserrat', 'sans-serif'],
+        'cormorant': ['Cormorant Garamond', 'serif'],
+        'montserrat': ['Montserrat', 'sans-serif'],
       },
     },
   },

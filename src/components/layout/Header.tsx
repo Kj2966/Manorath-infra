@@ -18,23 +18,35 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 h-24 ${
+    <header className={`fixed w-full z-50 transition-all duration-300 h-20 sm:h-24 ${
       isScrolled 
         ? 'bg-white/95 backdrop-blur-md shadow-lg' 
         : 'bg-gradient-to-b from-black/50 to-transparent'
     }`}>
       {/* Main Navigation */}
-      <nav className="container mx-auto px-4">
+      <nav className="container mx-auto px-4 h-full">
         <div className="flex items-center justify-between h-full">
-          <Link to="/" className="flex items-center">
+          {/* Logo and Company Name */}
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3">
             <img 
               src={Logo} 
               alt="Manorath Infra Logo" 
-              className="h-20 mr-0 -ml-4 md:-ml-6"
+              className="h-16 sm:h-20 w-auto object-contain"
             />
-            <span className={`text-xl md:text-5xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-playfair text-shadow`}>
-              Manorath Infra
-            </span>
+            <div className="flex flex-col">
+              <span className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold 
+                ${isScrolled ? 'text-gray-900' : 'text-white'} 
+                font-['Cormorant_Garamond'] tracking-wide leading-tight`}
+              >
+                Manorath
+              </span>
+              <span className={`text-sm sm:text-base md:text-lg lg:text-xl 
+                ${isScrolled ? 'text-[rgb(81,144,210)]' : 'text-amber-400'} 
+                font-semibold font-['Montserrat'] tracking-wider uppercase`}
+              >
+                Infra
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -44,8 +56,8 @@ const Header = () => {
                 <Link 
                   to={link.path}
                   className={`flex items-center space-x-1 group ${
-                    isScrolled ? 'text-gray-700 text-lg' : 'text-white text-lg'
-                  } hover:text-amber-500 transition-colors`}
+                    isScrolled ? 'text-gray-700' : 'text-white'
+                  } text-base font-['Montserrat'] font-medium hover:text-[rgb(81,144,210)] transition-colors`}
                 >
                   <span>{link.title}</span>
                   {link.submenu && (
@@ -55,12 +67,12 @@ const Header = () => {
                 
                 {link.submenu && (
                   <div className="absolute top-full left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
-                    <div className="p-1 bg-white rounded-xl shadow-xl border border-gray-100">
+                    <div className="p-1.5 bg-white rounded-xl shadow-xl border border-gray-100">
                       {link.submenu.map((sublink) => (
                         <Link
                           key={sublink.title}
                           to={sublink.path}
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg text-sm transition-colors"
+                          className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-[rgb(81,144,210)] rounded-lg text-sm font-medium transition-colors"
                         >
                           {sublink.title}
                         </Link>
@@ -72,15 +84,16 @@ const Header = () => {
             ))}
           </div>
 
-          <div className="hidden lg:flex items-center space-x-4">
-            <button className={`p-2 rounded-full transition-colors ${
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <button className={`p-2.5 rounded-full transition-colors ${
               isScrolled ? 'hover:bg-gray-100' : 'hover:bg-white/10'
             }`}>
               <Search className={`w-5 h-5 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
             </button>
             <a
               href="tel:+1234567890"
-              className="flex items-center px-6 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg hover:from-amber-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              className="flex items-center px-6 py-2.5 bg-[rgb(81,144,210)] text-white rounded-lg hover:bg-[rgb(61,124,190)] transition-all duration-300 transform hover:scale-105 hover:shadow-lg font-medium"
             >
               <Phone className="w-4 h-4 mr-2" />
               Get a Quote
@@ -89,7 +102,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2.5 hover:bg-white/10 rounded-lg transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen 
@@ -106,25 +119,25 @@ const Header = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white rounded-xl shadow-xl mt-2 overflow-hidden"
+              className="lg:hidden fixed left-4 right-4 top-20 bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100"
             >
-              <div className="p-4">
+              <div className="p-4 max-h-[calc(100vh-6rem)] overflow-y-auto">
                 {navLinks.map((link) => (
-                  <div key={link.title}>
+                  <div key={link.title} className="border-b border-gray-100 last:border-none">
                     <Link
                       to={link.path}
-                      className="block py-3 text-gray-700 hover:text-amber-500 transition-colors"
+                      className="block py-3.5 text-gray-700 hover:text-[rgb(81,144,210)] transition-colors font-medium"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.title}
                     </Link>
                     {link.submenu && (
-                      <div className="pl-4 border-l border-gray-200 ml-4 space-y-2">
+                      <div className="pl-4 border-l-2 border-[rgb(81,144,210)]/20 ml-4 mb-3 space-y-2">
                         {link.submenu.map((sublink) => (
                           <Link
                             key={sublink.title}
                             to={sublink.path}
-                            className="block py-2 text-sm text-gray-600 hover:text-amber-500 transition-colors"
+                            className="block py-2.5 text-sm text-gray-600 hover:text-[rgb(81,144,210)] transition-colors"
                             onClick={() => setIsOpen(false)}
                           >
                             {sublink.title}
@@ -136,7 +149,7 @@ const Header = () => {
                 ))}
                 <a
                   href="tel:+919672671173"
-                  className="mt-4 flex items-center justify-center px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-lg"
+                  className="mt-4 flex items-center justify-center px-6 py-3.5 bg-[rgb(81,144,210)] text-white rounded-lg font-medium"
                 >
                   <Phone className="w-4 h-4 mr-2" />
                   Contact Us
