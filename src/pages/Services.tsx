@@ -12,46 +12,49 @@ const Services = () => {
   const services = [
     {
       icon: Building2,
-      title: 'Infrastructure Development',
-      description: 'Comprehensive infrastructure solutions including roads, bridges, and tunnels.',
+      title: 'Civil Work',
+      description: 'Comprehensive civil engineering and construction solutions',
       image: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&q=80',
-      details: 'Specializing in large-scale infrastructure projects that connect communities and drive economic growth.',
+    },
+    {
+      icon: Ruler,
+      title: 'Designing',
+      description: 'Professional design and planning services',
+      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80',
+      subServices: [
+        '2D Planning',
+        '3D Elevation',
+        'Interior Design',
+        'Land Survey',
+        'Project Costing',
+        'Quantity Estimation',
+        'Engineering Consultation'
+      ]
     },
     {
       icon: Crane,
       title: 'Commercial Construction',
-      description: 'Modern commercial spaces designed for efficiency and sustainability.',
+      description: 'Modern commercial spaces designed for efficiency',
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80',
-      details: 'Creating innovative commercial spaces that blend functionality with contemporary design.',
     },
     {
       icon: Factory,
       title: 'Industrial Projects',
-      description: 'State-of-the-art industrial facilities and manufacturing plants.',
+      description: 'State-of-the-art industrial facilities',
       image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80',
-      details: 'Building advanced industrial facilities that power modern manufacturing and production.',
     },
     {
       icon: HardHat,
       title: 'Project Management',
-      description: 'Expert project management ensuring timely and efficient delivery.',
+      description: 'Expert project management services',
       image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80',
-      details: 'Comprehensive project management services that ensure successful project completion.',
-    },
-    {
-      icon: Ruler,
-      title: 'Architecture & Design',
-      description: 'Innovative architectural solutions for modern construction needs.',
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80',
-      details: 'Creating stunning architectural designs that push the boundaries of modern construction.',
     },
     {
       icon: Wrench,
       title: 'Renovation & Repairs',
-      description: 'Professional renovation services for existing structures.',
+      description: 'Professional renovation services',
       image: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&q=80',
-      details: 'Expert renovation and repair services that breathe new life into existing structures.',
-    },
+    }
   ];
 
   return (
@@ -83,8 +86,8 @@ const Services = () => {
               >
                 Expert <span className="text-[rgb(81,144,210)]">Construction</span>
                 <br className="block sm:hidden" />
-                <span className="hidden sm:inline">Services</span>
-                <span className="block sm:hidden">Services</span>
+                <span className="hidden sm:inline"> Services</span>
+                <span className="block sm:hidden"> Services</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -120,23 +123,26 @@ const Services = () => {
       </section>
 
       {/* Services Overview */}
-      <section className="relative py-24 sm:py-32 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24 sm:py-32">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50" />
+        <div className="container mx-auto px-4 relative">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16 sm:mb-20"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">Comprehensive Solutions</h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              From concept to completion, we deliver exceptional construction services that transform visions into reality.
-              Our expertise spans across various domains of construction and development.
+            <h2 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[rgb(81,144,210)] via-blue-600 to-[rgb(81,144,210)]">
+              Our Expertise
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[rgb(81,144,210)] to-blue-600 mx-auto mb-6" />
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Transforming visions into reality with cutting-edge construction solutions
             </p>
           </motion.div>
 
-          <div id="services" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -144,31 +150,81 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden"
+                className="group relative"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <service.icon className="w-8 h-8 text-[rgb(81,144,210)] mb-2" />
-                    <h3 className="text-xl font-bold text-white mb-1">{service.title}</h3>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-[rgb(81,144,210)] to-blue-600 rounded-2xl blur opacity-20 group-hover:opacity-30 transition duration-300" />
+                <div className="relative flex flex-col h-full bg-white rounded-2xl overflow-hidden">
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="p-2 bg-white/10 backdrop-blur-md rounded-xl border border-white/20">
+                      <service.icon className="w-6 h-6 text-white" />
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group px-4 py-2 bg-[rgb(81,144,210)] text-white text-sm font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 flex items-center gap-2"
-                  >
-                    Learn More
-                    <ArrowUpRight className="w-4 h-4 text-[rgb(81,144,210)] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </motion.button>
+
+                  <div className="relative h-48 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[rgb(81,144,210)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent" />
+                  </div>
+
+                  <div className="relative p-6 flex-grow flex flex-col">
+                    <div className="mb-4">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                      <p className="text-gray-600">{service.description}</p>
+                    </div>
+
+                    {service.subServices && (
+                      <div className="mt-auto">
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="w-8 h-0.5 bg-[rgb(81,144,210)]" />
+                          <span className="text-sm font-medium text-[rgb(81,144,210)]">Key Services</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                          {service.subServices.slice(0, 4).map((subService, subIndex) => (
+                            <motion.div
+                              key={subIndex}
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              transition={{ delay: subIndex * 0.1 }}
+                              className="group/item flex items-center gap-2"
+                            >
+                              <motion.div
+                                whileHover={{ scale: 1.2 }}
+                                className="w-1.5 h-1.5 rounded-full bg-[rgb(81,144,210)]"
+                              />
+                              <span className="text-sm text-gray-600 group-hover/item:text-[rgb(81,144,210)] transition-colors">
+                                {subService}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                        {service.subServices.length > 4 && (
+                          <motion.button
+                            whileHover={{ x: 5 }}
+                            className="mt-4 text-sm text-[rgb(81,144,210)] hover:text-blue-600 flex items-center gap-2"
+                          >
+                            View all services
+                            <ArrowUpRight className="w-4 h-4" />
+                          </motion.button>
+                        )}
+                      </div>
+                    )}
+
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="mt-6 group/btn relative overflow-hidden px-6 py-3 rounded-xl bg-gradient-to-r from-[rgb(81,144,210)] to-blue-600 text-white font-medium"
+                    >
+                      <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
+                      <span className="relative flex items-center justify-center gap-2">
+                        Learn More
+                        <ArrowUpRight className="w-4 h-4 transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      </span>
+                    </motion.button>
+                  </div>
                 </div>
               </motion.div>
             ))}

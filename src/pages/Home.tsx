@@ -486,6 +486,11 @@ const Home = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const message = "Hello! I'm interested in scheduling a consultation with Manorath Infra to discuss my construction project requirements. Could you please help me book an appointment?";
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/919672671173?text=${encodedMessage}`, '_blank');
+              }}
               className="px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 shadow-lg hover:shadow-[rgb(81,144,210)]/25"
             >
               Schedule a Consultation

@@ -1,9 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
-// The error occurs because the 'vite-plugin-compression' package is not installed.
-// To fix this, run: npm install vite-plugin-compression --save-dev
-// Or: yarn add -D vite-plugin-compression
 import compression from 'vite-plugin-compression';
 
 // https://vitejs.dev/config/

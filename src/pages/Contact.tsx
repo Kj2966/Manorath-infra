@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Clock, Building } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, Building, MessageSquare } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 
@@ -36,13 +36,12 @@ const Contact = () => {
 
   const contactInfo = {
     address: {
-      main: "123 Construction Plaza, Financial District",
-      city: "New York, NY 10004",
-      country: "United States"
+      main: "102 first floor, Kanhaiya apartment, Bus stand road",
+      city: "Nathdwara 313301",
+      country: "India"
     },
     phone: {
-      main: "+1 (212) 555-0123",
-      toll_free: "1-800-CONSTRUCT"
+      main: "+919672671173",
     },
     email: {
       general: "info@grconstruction.com",
@@ -87,10 +86,14 @@ const Contact = () => {
                   Call Now
                 </a>
                 <a 
-                  href="#contact-form"
+                   onClick={() => {
+                    const message = "Hello! I'm interested in scheduling a consultation with Manorath Infra to discuss my construction project requirements. Could you please help me book an appointment?";
+                    const encodedMessage = encodeURIComponent(message);
+                    window.open(`https://wa.me/919672671173?text=${encodedMessage}`, '_blank');
+                  }}
                   className="px-8 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-colors inline-flex items-center justify-center"
                 >
-                  <Mail className="w-5 h-5 mr-2" />
+                  <MessageSquare className="w-5 h-5 mr-2" />
                   Send Message
                 </a>
               </div>
@@ -139,7 +142,7 @@ const Contact = () => {
                   className="mt-6"
                 >
                   <a
-                    href="https://maps.google.com"
+                    href="https://maps.app.goo.gl/pGLap4JYE22USGob9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-4 py-2 bg-[rgb(81,144,210)] text-white rounded-lg font-semibold hover:bg-[rgb(81,144,210)] transition-colors"
@@ -170,7 +173,7 @@ const Contact = () => {
                   <p className="group-hover:text-white transition-colors">
                     Main: {contactInfo.phone.main}
                   </p>
-                  <p>Toll Free: {contactInfo.phone.toll_free}</p>
+                  {/* <p>Toll Free: {contactInfo.phone.toll_free}</p> */}
                 </div>
                 <motion.div
                   initial={{ scale: 0 }}
@@ -235,8 +238,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-xl overflow-hidden">
             <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.01369674847454!3d40.71774937933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a165bedccab%3A0x2cb2ddf003b5ae01!2sFinancial%20District%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1658849865428!5m2!1sen!2sus"
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.6890877509604!2d73.82198917450955!3d24.927519177885483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39680dc60982bb85%3A0xb378eec5a49259bf!2sManorath%20Infra!5e1!3m2!1sen!2sin!4v1740680896914!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Shield, Target, Users, Leaf, ArrowUpRight, X, Briefcase, Mail, Phone, MapPin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface Leader {
   id: number;
@@ -83,6 +84,7 @@ const leaders: Leader[] = [
 ];
 
 const About = () => {
+  const navigate = useNavigate();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -249,6 +251,7 @@ const About = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300 shadow-lg hover:shadow-[rgb(81,144,210)]/25 flex items-center mx-auto"
+              onClick={() => navigate('/careers')}
             >
               Join Our Team
               <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
