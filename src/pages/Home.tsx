@@ -4,6 +4,7 @@ import { ArrowUpRight, Shield, Clock, Users, Award, CheckCircle2, Briefcase, Bui
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
+import ProcessHouse from '../components/ProcessHouse';
 
 const Home = () => {
   const [ref, inView] = useInView({
@@ -196,7 +197,27 @@ const Home = () => {
           </div>
         </div>
       </section>
+ {/* Project Process Section */}
+ <section className="py-16 sm:py-24 relative overflow-hidden bg-gray-900">
+        <div className="container mx-auto px-4 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
+              Our Project Process
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+              A systematic approach to turning your vision into reality
+            </p>
+          </motion.div>
 
+          <ProcessHouse />
+        </div>
+      </section>
       {/* Stats Section with Glass Effect */}
       <section className="py-16 sm:py-24 bg-gradient-to-b from-gray-900 to-gray-800" ref={ref}>
         <div className="container mx-auto px-4">
@@ -242,8 +263,136 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Recent Highlights Section */}
-      <section className="py-16 sm:py-24 bg-gray-50">
+ 
+
+      {/* Services Section */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">Our Comprehensive Services</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              From concept to completion, we offer end-to-end construction solutions tailored to your needs.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              {
+                title: "Commercial Construction",
+                description: "State-of-the-art office buildings, retail spaces, and industrial facilities.",
+                icon: Building2,
+                features: ["Modern Design", "Energy Efficiency", "Smart Integration"]
+              },
+              {
+                title: "Residential Projects",
+                description: "Luxury homes, apartments, and residential complexes built to perfection.",
+                icon: Users,
+                features: ["Custom Designs", "Premium Materials", "Timely Delivery"]
+              },
+              {
+                title: "Infrastructure Development",
+                description: "Roads, bridges, and public infrastructure projects.",
+                icon: Workflow,
+                features: ["Durability", "Public Safety", "Environmental Care"]
+              }
+            ].map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="p-6 sm:p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"
+              >
+                <service.icon className="w-10 h-10 sm:w-12 sm:h-12 text-[rgb(81,144,210)] mb-4 sm:mb-6" />
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-gray-600 text-sm sm:text-base mb-6">{service.description}</p>
+                <ul className="space-y-3">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center text-gray-700 text-sm sm:text-base">
+                      <CheckCircle2 className="w-5 h-5 text-[rgb(81,144,210)] mr-3" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+     
+
+      {/* Testimonials Section */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">Client Testimonials</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              What our clients say about their experience working with us
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              {
+                quote: "Exceptional quality and professionalism throughout the entire project. Highly recommended!",
+                author: "John Smith",
+                position: "CEO, Tech Solutions Inc.",
+                image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100"
+              },
+              {
+                quote: "Their attention to detail and commitment to deadlines is impressive. A trusted partner.",
+                author: "Sarah Johnson",
+                position: "Director, Urban Development Corp",
+                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100"
+              },
+              {
+                quote: "Innovative solutions and excellent communication throughout the project lifecycle.",
+                author: "Michael Chen",
+                position: "Property Developer",
+                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100"
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="p-6 sm:p-8 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-center mb-6">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.author}
+                    className="w-12 h-12 rounded-full object-cover mr-4"
+                  />
+                  <div>
+                    <h4 className="font-bold text-gray-900 text-lg">{testimonial.author}</h4>
+                    <p className="text-gray-600 text-sm">{testimonial.position}</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 italic text-sm sm:text-base">"{testimonial.quote}"</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+     {/* Recent Highlights Section */}
+     <section className="py-16 sm:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -305,7 +454,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Call to Action */}
       <section className="relative py-16 sm:py-24 overflow-hidden">
         <div className="absolute inset-0">

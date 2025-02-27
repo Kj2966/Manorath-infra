@@ -32,7 +32,7 @@ const Header = () => {
               alt="Manorath Infra Logo" 
               className="h-20 mr-0 -ml-4 md:-ml-6"
             />
-            <span className={`text-2xl md:text-5xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-playfair text-shadow`}>
+            <span className={`text-xl md:text-5xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-playfair text-shadow`}>
               Manorath Infra
             </span>
           </Link>
