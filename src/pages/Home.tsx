@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
 import ProcessHouse from '../components/ProcessHouse';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const [ref, inView] = useInView({
@@ -25,6 +26,8 @@ const Home = () => {
   ];
 
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
+
+  const navigate = useNavigate();
 
   // Auto-advance hero carousel
   useEffect(() => {
@@ -106,11 +109,16 @@ const Home = () => {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4 sm:gap-6"
               >
-                <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center">
+                <button
+                  onClick={() => navigate('/contact#contact-form')}
+                  className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center"
+                >
                   Start Your Project
                   <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
-                <button className="group px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-white/20 flex items-center justify-center">
+                <button
+                 onClick={() => navigate('/about#ourStory')}
+                className="group px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-white/20 flex items-center justify-center">
                   Watch Our Story
                 </button>
               </motion.div>

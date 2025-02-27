@@ -20,7 +20,7 @@ const Footer = () => {
               Building tomorrow's infrastructure with innovation, quality, and sustainability at our core.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-[rgb(81,144,210)] transition-colors">
+              <a href="https://www.facebook.com/manorathinfra?mibextid=ZbWKwL" className="hover:text-[rgb(81,144,210)] transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
               <a href="#" className="hover:text-[rgb(81,144,210)] transition-colors">
@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="#" className="hover:text-[rgb(81,144,210)] transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-[rgb(81,144,210)] transition-colors">
+              <a href="https://www.instagram.com/manorathinfra?igsh=MWxyNjloZ295d2h5eg==" className="hover:text-[rgb(81,144,210)] transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -53,11 +53,11 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-[rgb(81,144,210)] mt-1" />
-                <span className="text-gray-300">123 Construction Ave, Business District, New York, NY 10001</span>
+                <span className="text-gray-300">102 first floor, Kanhaiya apartment, Bus stand road,Nathdwara 313301</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[rgb(81,144,210)]" />
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-[rgb(81,144,210)] transition-colors">(123) 456-7890</a>
+                <a href="tel:+919672671173" className="text-gray-300 hover:text-[rgb(81,144,210)] transition-colors">+91 9672671173</a>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[rgb(81,144,210)]" />

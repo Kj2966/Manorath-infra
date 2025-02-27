@@ -257,7 +257,7 @@ const About = () => {
         </div>
       </section>
       {/* Company Overview/Story */}
-      <section className="py-24 sm:py-32 bg-white" ref={ref}>
+      <section className="py-24 sm:py-32 bg-white" ref={ref} id='ourStory'>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
             <motion.div
