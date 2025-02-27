@@ -93,7 +93,7 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[100svh] overflow-hidden">
+      <section className="relative h-[100svh] overflow-hidden overflow-x-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=2070"
@@ -115,7 +115,7 @@ const About = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
               >
                 Building <span className="text-[rgb(81,144,210)]">Tomorrow's</span>
                 <br className="hidden sm:block" />World Today
@@ -124,7 +124,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl"
+                className="text-base sm:text-lg md:text-xl text-gray-200 max-w-2xl"
               >
                 Over two decades of excellence in construction, shaping skylines and transforming communities.
               </motion.p>
