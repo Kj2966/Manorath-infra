@@ -82,7 +82,9 @@ const Services = () => {
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4 sm:mb-6 leading-tight"
               >
                 Expert <span className="text-[rgb(81,144,210)]">Construction</span>
-                <br className="hidden sm:block" />Services
+                <br className="block sm:hidden" />
+                <span className="hidden sm:inline">Services</span>
+                <span className="block sm:hidden">Services</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

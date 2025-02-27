@@ -118,7 +118,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Parallax and Stats */}
-      <section className="relative min-h-[90vh] sm:h-[80vh] overflow-hidden">
+      <section className="relative min-h-[100vh] sm:h-[80vh] overflow-hidden">
         <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -143,7 +143,7 @@ const Projects = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
               Our <span className="text-[rgb(81,144,210)]">Portfolio</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-200 max-w-2xl">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl">
               Discover our landmark projects that showcase innovation, precision, and excellence in construction.
             </p>
           </motion.div>
