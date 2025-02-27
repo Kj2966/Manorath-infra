@@ -30,9 +30,9 @@ const Header = () => {
             <img 
               src={Logo} 
               alt="Manorath Infra Logo" 
-              className="h-20 mr-0 -ml-6 md:-ml-8"
+              className="h-20 mr-0 -ml-4 md:-ml-6"
             />
-            <span className={`text-4xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-sans`}>
+            <span className={`text-2xl md:text-5xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'} font-playfair text-shadow`}>
               Manorath Infra
             </span>
           </Link>
@@ -44,7 +44,7 @@ const Header = () => {
                 <Link 
                   to={link.path}
                   className={`flex items-center space-x-1 group ${
-                    isScrolled ? 'text-gray-700' : 'text-white'
+                    isScrolled ? 'text-gray-700 text-lg' : 'text-white text-lg'
                   } hover:text-amber-500 transition-colors`}
                 >
                   <span>{link.title}</span>
