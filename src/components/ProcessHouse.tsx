@@ -6,25 +6,45 @@ import * as THREE from 'three';
 const HouseModel = React.memo(({ stage, setStage }) => {
   const houseRef = useRef();
 
-  const geometries = useMemo(() => ({
-    foundation: new THREE.BoxGeometry(5, 0.5, 5),
-    wall: new THREE.BoxGeometry(4, 2.5, 4),
-    window: new THREE.BoxGeometry(0.8, 1, 0.1),
-    roof: new THREE.ConeGeometry(3, 2, 4),
-  }), []);
-
   const materials = useMemo(() => ({
-    base: new THREE.MeshStandardMaterial({
-      metalness: 0.5,
+    walls: new THREE.MeshStandardMaterial({
+      color: '#e8e3d9', // Beige color
+      metalness: 0.1,
+      roughness: 0.8,
+    }),
+    roof: new THREE.MeshStandardMaterial({
+      color: '#8B4513', // Saddle brown for roof
+      metalness: 0.3,
       roughness: 0.7,
     }),
     glass: new THREE.MeshPhysicalMaterial({
-      color: '#87CEEB',
+      color: '#2196f3',
       metalness: 0.9,
-      roughness: 0.1,
+      roughness: 0.05,
       transparent: true,
-      opacity: 0.7,
-      envMapIntensity: 1,
+      opacity: 0.6,
+      envMapIntensity: 2.0,
+      polygonOffset: true,
+      polygonOffsetFactor: 1,
+      polygonOffsetUnits: 1,
+    }),
+    garage: new THREE.MeshStandardMaterial({
+      color: '#d3d3d3', // Light gray
+      metalness: 0.4,
+      roughness: 0.6,
+    }),
+    trim: new THREE.MeshStandardMaterial({
+      color: '#ffffff', // White
+      metalness: 0.2,
+      roughness: 0.5,
+    }),
+    door: new THREE.MeshStandardMaterial({
+      color: '#8B0000',
+      metalness: 0.3,
+      roughness: 0.7,
+      polygonOffset: true,
+      polygonOffsetFactor: 1,
+      polygonOffsetUnits: 1,
     }),
   }), []);
 
@@ -67,127 +87,161 @@ const HouseModel = React.memo(({ stage, setStage }) => {
 
   return (
     <group ref={houseRef}>
-      {/* Foundation */}
-      <mesh 
-        position={[0, -0.25, 0]} 
-        onClick={() => setStage(0)}
-        receiveShadow
-        castShadow
-      >
-        <boxGeometry args={[5, 0.5, 5]} />
-        <meshStandardMaterial 
-          color={stage === 0 ? '#5190D2' : '#666'} 
-          metalness={0.5}
-          roughness={0.7}
-        />
-      </mesh>
-
-      {/* Main Structure - First Floor */}
-      <group position={[0, 1.25, 0]} onClick={() => setStage(1)}>
-        {/* Walls */}
+      {/* Foundation - Reduced size */}
+      <group position={[0, -0.8, 0]} onClick={() => setStage(0)}>
+        {/* Main Foundation */}
         <mesh receiveShadow castShadow>
-          <boxGeometry args={[4, 2.5, 4]} />
+          <boxGeometry args={[6, 1.2, 5]} /> {/* Reduced from [9, 1.5, 7.5] */}
           <meshStandardMaterial 
-            color={stage === 1 ? '#5190D2' : '#e0e0e0'}
-            metalness={0.1}
-            roughness={0.8}
+            color={stage === 0 ? '#5190D2' : '#2a2a2a'} 
           />
         </mesh>
-
-        {/* Windows */}
-        {[[-2, 0, 0], [2, 0, 0], [0, 0, 2], [0, 0, -2]].map((pos, i) => (
-          <mesh key={i} position={pos} receiveShadow castShadow>
-            <boxGeometry args={[0.8, 1, 0.1]} />
-            <meshPhysicalMaterial 
-              color="#87CEEB"
-              metalness={0.9}
-              roughness={0.1}
-              transparent
-              opacity={0.7}
-              envMapIntensity={1}
-            />
+        
+        {/* Foundation Details */}
+        {[[-2.5, 2], [2.5, 2], [-2.5, -2], [2.5, -2]].map(([x, z], i) => (
+          <mesh key={i} position={[x, 0, z]} receiveShadow castShadow>
+            <cylinderGeometry args={[0.2, 0.3, 1.2, 8]} />
+            <meshStandardMaterial {...materials.foundation} />
           </mesh>
         ))}
       </group>
 
-      {/* Second Floor */}
-      <group position={[0, 3.75, 0]} onClick={() => setStage(2)}>
+      {/* Ground Level Platform */}
+      <mesh position={[0, -0.2, 0]} receiveShadow castShadow>
+        <boxGeometry args={[6, 0.3, 5]} /> {/* Reduced from [9, 0.4, 7.5] */}
+        <meshStandardMaterial 
+          color="#616161"
+          metalness={0.4}
+          roughness={0.6}
+        />
+      </mesh>
+
+      {/* First Floor - Reduced Size */}
+      <group position={[0, 1, 0]} onClick={() => setStage(1)}> {/* Adjusted Y position */}
         {/* Main Structure */}
         <mesh receiveShadow castShadow>
-          <boxGeometry args={[4, 2.5, 4]} />
+          <boxGeometry args={[5.5, 2.2, 4.5]} /> {/* Reduced from [8, 2.8, 7] */}
           <meshStandardMaterial 
-            color={stage === 2 ? '#5190D2' : '#e0e0e0'}
-            metalness={0.1}
-            roughness={0.8}
+            color={stage === 1 ? '#5190D2' : materials.walls.color}
+            {...materials.walls}
+          />
+        </mesh>
+
+        {/* Garage */}
+        <group position={[-1.5, -0.2, 0]}>
+          <mesh receiveShadow castShadow>
+            <boxGeometry args={[2.5, 2, 4.5]} /> {/* Reduced from [4, 2.4, 7] */}
+            <meshStandardMaterial {...materials.walls} />
+          </mesh>
+          {/* Garage Door */}
+          <mesh position={[0, -0.2, 2.26]} receiveShadow castShadow>
+            <boxGeometry args={[2.2, 1.6, 0.1]} /> {/* Reduced from [3.5, 2, 0.1] */}
+            <meshStandardMaterial {...materials.garage} />
+          </mesh>
+        </group>
+
+        {/* Front Door */}
+        <mesh position={[1.5, -0.3, 2.27]} receiveShadow castShadow>
+          <boxGeometry args={[0.9, 1.8, 0.1]} />
+          <meshStandardMaterial {...materials.door} />
+        </mesh>
+
+        {/* Windows - First Floor */}
+        {[
+          [1.5, 0, 2.26], // Front window
+          [1.5, 0, -2.26], // Back window
+          [2.75, 0, 0], // Side window
+        ].map((pos, i) => (
+          <mesh key={i} position={pos} receiveShadow castShadow>
+            <boxGeometry args={[0.9, 1.2, 0.1]} /> {/* Reduced from [1.2, 1.4, 0.1] */}
+            <meshPhysicalMaterial {...materials.glass} />
+          </mesh>
+        ))}
+      </group>
+
+      {/* Second Floor - Reduced Size */}
+      <group position={[0, 3.2, 0]} onClick={() => setStage(2)}> {/* Adjusted Y position */}
+        {/* Main Structure */}
+        <mesh receiveShadow castShadow>
+          <boxGeometry args={[5.5, 2.2, 4.5]} /> {/* Reduced from [8, 2.8, 7] */}
+          <meshStandardMaterial 
+            color={stage === 2 ? '#5190D2' : materials.walls.color}
+            {...materials.walls}
           />
         </mesh>
 
         {/* Balcony */}
-        <mesh position={[0, 0, 2.2]} receiveShadow castShadow>
-          <boxGeometry args={[2, 0.1, 0.4]} />
-          <meshStandardMaterial color="#999" />
-        </mesh>
+        <group position={[0, -0.2, 2.31]}>
+          <mesh receiveShadow castShadow>
+            <boxGeometry args={[3, 0.2, 1]} />
+            <meshStandardMaterial {...materials.trim} />
+          </mesh>
+          <mesh position={[0, 0.4, 0.45]} receiveShadow castShadow>
+            <boxGeometry args={[2.8, 0.8, 0.08]} />
+            <meshPhysicalMaterial {...materials.glass} />
+          </mesh>
+          {[-1.35, 1.35].map((x) => (
+            <mesh key={x} position={[x, 0.4, 0.45]} receiveShadow castShadow>
+              <boxGeometry args={[0.08, 0.8, 0.08]} />
+              <meshStandardMaterial color="#ffffff" metalness={0.5} roughness={0.5} />
+            </mesh>
+          ))}
+        </group>
 
-        {/* Windows */}
-        {[[-1.5, 0, 0], [1.5, 0, 0]].map((pos, i) => (
+        {/* Windows - Second Floor */}
+        {[
+          [-1.5, 0, 2.28], [1.5, 0, 2.28],
+          [-1.5, 0, -2.28], [1.5, 0, -2.28],
+          [-2.76, 0, 0], [2.76, 0, 0],
+        ].map((pos, i) => (
           <mesh key={i} position={pos} receiveShadow castShadow>
-            <boxGeometry args={[0.8, 1, 0.1]} />
-            <meshPhysicalMaterial 
-              color="#87CEEB"
-              metalness={0.9}
-              roughness={0.1}
-              transparent
-              opacity={0.7}
-              envMapIntensity={1}
-            />
+            <boxGeometry args={[0.9, 1.2, 0.1]} />
+            <meshPhysicalMaterial {...materials.glass} />
           </mesh>
         ))}
       </group>
 
-      {/* Roof */}
-      <group position={[0, 5.5, 0]} onClick={() => setStage(3)}>
+      {/* Hip Roof - Reduced Size */}
+      <group position={[0, 4.6, 0]} onClick={() => setStage(3)}> {/* Adjusted Y position */}
         {/* Main Roof */}
         <mesh receiveShadow castShadow>
-          <coneGeometry args={[3, 2, 4]} />
-          <meshStandardMaterial 
-            color={stage === 3 ? '#5190D2' : '#8B4513'}
-            metalness={0.3}
-            roughness={0.8}
-          />
+          <boxGeometry args={[6, 0.2, 5]} /> {/* Reduced from [8.5, 0.2, 7.5] */}
+          <meshStandardMaterial {...materials.roof} />
         </mesh>
-
-        {/* Roof Details */}
-        <mesh position={[0, 0.5, 0]} receiveShadow castShadow>
-          <cylinderGeometry args={[0.3, 0.3, 1, 8]} />
-          <meshStandardMaterial color="#666" />
-        </mesh>
+        
+        {/* Roof Slopes */}
+        {[
+          { pos: [0, 0.6, 0], size: [5, 1.2, 4] }, // Center
+          { pos: [-2.75, 0.3, 0], size: [0.8, 0.6, 4], rot: [0, 0, Math.PI / 4] }, // Left
+          { pos: [2.75, 0.3, 0], size: [0.8, 0.6, 4], rot: [0, 0, -Math.PI / 4] }, // Right
+          { pos: [0, 0.3, 2.25], size: [5, 0.6, 0.8], rot: [Math.PI / 4, 0, 0] }, // Front
+          { pos: [0, 0.3, -2.25], size: [5, 0.6, 0.8], rot: [-Math.PI / 4, 0, 0] }, // Back
+        ].map((config, i) => (
+          <mesh
+            key={i}
+            position={config.pos}
+            rotation={config.rot || [0, 0, 0]}
+            receiveShadow
+            castShadow
+          >
+            <boxGeometry args={config.size} />
+            <meshStandardMaterial {...materials.roof} />
+          </mesh>
+        ))}
       </group>
 
-      {/* Door */}
-      <mesh position={[0, 0.75, 2]} receiveShadow castShadow>
-        <boxGeometry args={[1, 1.5, 0.1]} />
-        <meshStandardMaterial 
-          color="#8B4513"
-          metalness={0.3}
-          roughness={0.8}
-        />
-      </mesh>
-
-      {/* Steps */}
-      {[0.3, 0.6].map((y, i) => (
-        <mesh key={i} position={[0, y/3, 2.3 + i * 0.3]} receiveShadow castShadow>
-          <boxGeometry args={[1.5, 0.2, 0.3]} />
-          <meshStandardMaterial color="#999" />
-        </mesh>
-      ))}
-
-      {/* Stage Labels */}
-      {stages.map((s, index) => (
+      {/* Stage Labels - Adjusted positions */}
+      {[
+        { title: 'Strong Foundation', y: -0.8 },
+        { title: 'Design Excellence', y: 1 },
+        { title: 'Premium Construction', y: 3.2 },
+        { title: 'Luxury Finishing', y: 4.6 }
+      ].map((s, index) => (
         <Text
           key={index}
-          position={s.position}
-          fontSize={0.3}
-          color={stage === index ? s.color : 'white'}
+          position={[-4, s.y, 0]}
+          fontSize={0.25}
+          color={stage === index ? '#5190D2' : 'white'}
           anchorX="left"
           anchorY="middle"
         >
@@ -227,7 +281,7 @@ const ProcessHouse = () => {
     <div className="relative h-[600px] w-full">
       <Canvas
         shadows
-        camera={{ position: [10, 10, 10], fov: 45 }}
+        camera={{ position: [12, 6, 12], fov: 45 }}
         className="w-full h-full"
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
@@ -246,17 +300,17 @@ const ProcessHouse = () => {
       </Canvas>
 
       {/* Stage Information Overlay */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-md px-4">
-        <div className="bg-white/10 backdrop-blur-md p-6 rounded-xl text-white">
-          <h3 className="text-2xl font-bold mb-2">
-            {['Initial Consultation', 'Planning & Design', 'Construction', 'Project Delivery'][stage]}
+      <div className="absolute bottom-8 left-8 w-full max-w-sm">
+        <div className="bg-gradient-to-r from-[#1a1a1a]/90 to-transparent p-6 rounded-xl text-white">
+          <h3 className="text-2xl font-bold mb-2 text-[#5190D2]">
+            {['Foundation Phase', 'Design Excellence', 'Premium Construction', 'Luxury Finishing'][stage]}
           </h3>
           <p className="text-gray-200">
             {[
-              'We discuss your vision, requirements, and project scope.',
-              'Detailed project planning and architectural design phase.',
-              'Expert execution with regular quality checks and updates.',
-              'Final inspections and handover of your completed project.'
+              'Building on a strong foundation with quality materials and expert engineering.',
+              'Creating architectural masterpieces with attention to every detail.',
+              'Premium construction with finest materials and craftsmanship.',
+              'Luxury finishing touches that define excellence.'
             ][stage]}
           </p>
         </div>

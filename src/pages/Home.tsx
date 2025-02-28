@@ -231,10 +231,10 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {[
-              { icon: Shield, label: 'Projects Delivered', value: 500 },
-              { icon: Clock, label: 'Years of Excellence', value: 25 },
-              { icon: Users, label: 'Expert Team Members', value: 1000 },
-              { icon: Award, label: 'Industry Awards', value: 100 },
+              { icon: Shield, label: 'Projects Delivered', value: 100 },
+              { icon: Clock, label: 'Years of Excellence', value: 8 },
+              { icon: Users, label: 'Expert Team Members', value: 500 },
+              { icon: Award, label: 'Industry Awards', value: 4 },
             ].map((stat, index) => (
               <motion.div
                 key={index}

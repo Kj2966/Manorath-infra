@@ -133,14 +133,14 @@ const Projects = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-transparent" />
         </motion.div>
 
-        <div className="relative container mx-auto px-4 h-full flex flex-col justify-between py-12 sm:py-20">
+        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center gap-16 sm:gap-20 py-12 sm:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="max-w-4xl"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 mt-12 sm:mt-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6">
               Our <span className="text-[rgb(81,144,210)]">Portfolio</span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl">
@@ -148,8 +148,8 @@ const Projects = () => {
             </p>
           </motion.div>
 
-          {/* Stats Row - Improved Mobile Layout */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12">
+          {/* Stats Row - Improved Layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {[
               { icon: Building, label: 'Projects Completed', value: '500+' },
               { icon: Clock, label: 'Years of Excellence', value: '25+' },
