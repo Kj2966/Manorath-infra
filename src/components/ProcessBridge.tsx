@@ -295,7 +295,7 @@ const ProcessBridge = () => {
           {staticElements}
           <BridgeModel stage={stage} setStage={setStage} />
           <OrbitControls
-            enableZoom={true}
+            enableZoom={false}
             minPolarAngle={Math.PI / 4}
             maxPolarAngle={Math.PI / 2}
             enableDamping={true}
