@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Shield, Clock, Users, Award, CheckCircle2, Briefcase, Building2, Workflow, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, Shield, Clock, Users, Award, CheckCircle2, Briefcase, Building2, Workflow, ArrowRight, Hammer } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
 import ProcessHouse from '../components/ProcessHouse';
+import ProcessBridge from '../components/ProcessBridge';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -36,6 +37,8 @@ const Home = () => {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
+
+  const [activeModel, setActiveModel] = useState('house');
 
   return (
     <div className="min-h-screen">
@@ -205,8 +208,8 @@ const Home = () => {
           </div>
         </div>
       </section>
- {/* Project Process Section */}
- <section className="py-16 sm:py-24 relative overflow-hidden bg-gray-900">
+      {/* Project Process Section */}
+      <section className="py-16 sm:py-24 relative overflow-hidden bg-gray-900">
         <div className="container mx-auto px-4 relative">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -216,14 +219,46 @@ const Home = () => {
             className="text-center mb-12 sm:mb-16"
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-              Our Project Process
+              Showcasing Our Projects
             </h2>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-              A systematic approach to turning your vision into reality
+              Explore our diverse range of projects, from residential homes to infrastructure bridges.
             </p>
           </motion.div>
 
-          <ProcessHouse />
+          {/* Project Type Toggle */}
+          <div className="flex justify-center gap-4 mt-8">
+            <button 
+              className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all ${
+                activeModel === 'house' 
+                  ? 'bg-[rgb(81,144,210)] text-white shadow-lg transform scale-105' 
+                  : 'bg-gray-700 text-gray-300'
+              }`}
+              onClick={() => setActiveModel('house')}
+            >
+              <Building2 className="w-5 h-5" />
+              House
+            </button>
+            <button 
+              className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all ${
+                activeModel === 'bridge' 
+                  ? 'bg-[rgb(81,144,210)] text-white shadow-lg transform scale-105' 
+                  : 'bg-gray-700 text-gray-300'
+              }`}
+              onClick={() => setActiveModel('bridge')}
+            >
+              <Hammer className="w-5 h-5" />
+              Bridge
+            </button>
+          </div>
+
+          <AnimatePresence mode="wait">
+            {activeModel === 'house' ? (
+              <ProcessHouse />
+            ) : (
+              <ProcessBridge />
+            )}
+          </AnimatePresence>
         </div>
       </section>
       {/* Stats Section with Glass Effect */}
@@ -270,8 +305,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
- 
 
       {/* Services Section */}
       <section className="py-16 sm:py-24 bg-white">
@@ -334,8 +367,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-     
 
       {/* Testimonials Section */}
       <section className="py-16 sm:py-24 bg-white">
