@@ -22,22 +22,27 @@ interface Leader {
   };
 }
 
+interface MDProfile {
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  stats: {
+    label: string;
+    value: string;
+  }[];
+  contact: {
+    email: string;
+    phone: string;
+    location: string;
+  };
+  socialLinks: {
+    platform: string;
+    url: string;
+  }[];
+}
+
 const leaders: Leader[] = [
-  {
-    id: 1,
-    name: "Harshit Sanchihar",
-    role: "Managing Director",
-    quote: "Innovation is not just about ideas, it's about making them happen.",
-    image: harshitImage,
-    details: {
-      bio: "With over 15 years of experience in construction management, Sarah has led numerous landmark projects across the country.",
-      experience: "Previously headed major infrastructure projects at leading construction firms",
-      education: "M.S. in Construction Management from Stanford University",
-      email: "sarah.anderson@example.com",
-      phone: "(555) 123-4567",
-      location: "San Francisco, CA"
-    }
-  },
   {
     id: 2,
     name: "Michael Chen",
@@ -95,13 +100,13 @@ const About = () => {
   const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative h-[100svh] overflow-hidden">
-        <div className="absolute inset-0 w-full">
+        <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=2070"
-            alt="Construction site"
+            alt="Construction site with workers"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/80 to-transparent" />
@@ -139,7 +144,7 @@ const About = () => {
                 className="mt-8"
               >
                 <motion.a
-                  href="#mission"
+                  href="#ourStory"
                   className="text-[rgb(81,144,210)] flex items-center gap-2 hover:text-emerald-300 transition-colors"
                   whileHover={{ y: 3 }}
                 >
@@ -356,254 +361,289 @@ const About = () => {
         </div>
       </section>
 
-      {/* Leadership Section */}
-      <section className="py-24 sm:py-32 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Meet our MD Section */}
+      <section className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-white to-gray-50">
+        {/* Background Design Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -right-1/4 -top-1/4 w-1/2 h-1/2 bg-[rgb(81,144,210)]/5 rounded-full blur-3xl"></div>
+          <div className="absolute -left-1/4 -bottom-1/4 w-1/2 h-1/2 bg-emerald-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-16 sm:mb-20"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Leadership</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Meet the visionaries who drive our success and shape the future of construction excellence.
-            </p>
+            <span className="text-[rgb(81,144,210)] font-semibold tracking-wider uppercase text-sm">Leadership</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mt-2 mb-4">
+              Meet Our Managing Director
+            </h2>
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-[2px] w-12 bg-emerald-500"></div>
+              <div className="h-[2px] w-12 bg-[rgb(81,144,210)]"></div>
+              <div className="h-[2px] w-12 bg-emerald-500"></div>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {leaders.map((leader, index) => (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Image Column */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5 relative"
+            >
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[rgb(81,144,210)]/20 to-emerald-500/20 rounded-3xl transform rotate-6"></div>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <img
+                    src={harshitImage}
+                    alt="Harshit Sanchihar"
+                    className="w-full h-[600px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
+                </div>
+                
+                {/* Floating Achievement Cards */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="absolute -right-12 top-12 bg-white rounded-2xl shadow-xl p-4 backdrop-blur-sm bg-white/90"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="bg-emerald-500/10 p-3 rounded-xl">
+                      <Target className="w-8 h-8 text-emerald-500" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-gray-900">100+</div>
+                      <div className="text-sm text-gray-600">Projects Completed</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="absolute -left-12 bottom-12 bg-white rounded-2xl shadow-xl p-4 backdrop-blur-sm bg-white/90"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="bg-[rgb(81,144,210)]/10 p-3 rounded-xl">
+                      <Shield className="w-8 h-8 text-[rgb(81,144,210)]" />
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-gray-900">8+</div>
+                      <div className="text-sm text-gray-600">Years of Excellence</div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Content Column */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7 space-y-8"
+            >
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-4xl font-bold text-gray-900 mb-2">Harshit Sanchihar</h3>
+                </div>
+
+                <blockquote className="relative pl-6 border-l-2 border-[rgb(81,144,210)] italic text-xl text-gray-700">
+                  "Success is not just about building structures, it's about building trust and relationships that last."
+                </blockquote>
+
+                <div className="prose max-w-none text-gray-600">
+                  <p className="text-lg leading-relaxed">
+                    A visionary leader with extensive experience in construction and infrastructure development. 
+                    Under his leadership, Manorath Infra has successfully delivered numerous landmark projects 
+                    and established itself as a trusted name in the industry.
+                  </p>
+                  
+                  <AnimatePresence>
+                    {selectedLeader?.id === 1 && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="space-y-4 overflow-hidden"
+                      >
+                        <p className="text-base">Dear Valued Clients, Partners, and Well-Wishers,</p>
+                        <p className="text-base">At Manorath Infra, we don't just build structures—we build dreams, trust, and a future of excellence. Every project we undertake is a testament to our commitment to quality, innovation, and precision. Since our inception in 2017, we have strived to create spaces that stand the test of time while upholding the highest standards of engineering, safety, and sustainability.</p>
+                        <p className="text-base">Our expertise spans residential and commercial buildings, bridge works, railway overpasses, reinforced earth walls, industrial sheds, and more. Beyond construction, our specialized services include structural engineering, interior design, land surveys, project costing, and quantity estimation, ensuring a seamless experience from conception to completion.</p>
+                        <p className="text-base">As a self-made entrepreneur, my journey from a civil engineering graduate to the founder of Manorath Infra has been one of dedication, perseverance, and an unwavering belief in hard work and innovation. This philosophy has driven me to pioneer impactful projects and successfully bring ideas to life—right from conception to commercial stabilization.</p>
+                        <p className="text-base">With a team of skilled professionals and state-of-the-art technology, Manorath Infra is committed to delivering excellence, reliability, and value in every endeavor. We take immense pride in transforming visions into landmarks that inspire generations to come.</p>
+                        <p className="text-base">We look forward to building a future together.</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setSelectedLeader(selectedLeader?.id === 1 ? null : leaders[0])}
+                  className="text-[rgb(81,144,210)] font-semibold flex items-center gap-2 hover:text-emerald-500 transition-colors"
+                >
+                  {selectedLeader?.id === 1 ? 'Read Less' : 'Read Full Message'}
+                  <ArrowUpRight className="w-5 h-5" />
+                </motion.button>
+              </div>
+
+              {/* Key Achievements */}
+              <div className="grid grid-cols-3 gap-6">
+                {[
+                  { label: 'Experience', value: '8+', unit: 'Years' },
+                  { label: 'Team Size', value: '500+', unit: 'Members' },
+                  { label: 'Client Satisfaction', value: '100', unit: '%' },
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative group"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[rgb(81,144,210)]/5 to-emerald-500/5 rounded-2xl transform group-hover:scale-105 transition-transform duration-300"></div>
+                    <div className="relative p-6 text-center">
+                      <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
+                      <div className="text-sm text-gray-600">{stat.label}</div>
+                      <div className="text-xs text-[rgb(81,144,210)]">{stat.unit}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Contact & Social */}
+              <div className="flex flex-wrap gap-6">
+                {/* <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="mailto:director@manorathinfra.com"
+                  className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[rgb(81,144,210)] to-emerald-500 text-white rounded-xl hover:shadow-lg transition-all duration-300"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>Connect via Email</span>
+                </motion.a> */}
+
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://linkedin.com"
+                  target="_blank"
+                  className="flex items-center gap-3 px-6 py-3 border-2 border-[rgb(81,144,210)] text-[rgb(81,144,210)] rounded-xl hover:bg-[rgb(81,144,210)] hover:text-white transition-all duration-300"
+                >
+                  <ArrowUpRight className="w-5 h-5" />
+                  <span>LinkedIn Profile</span>
+                </motion.a>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Team Section */}
+          <div className="mt-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <span className="text-[rgb(81,144,210)] font-semibold tracking-wider uppercase text-sm">Our Team</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+                Meet Our Expert Team
+              </h2>
+              <div className="flex items-center justify-center gap-2">
+                <div className="h-[2px] w-12 bg-emerald-500"></div>
+                <div className="h-[2px] w-12 bg-[rgb(81,144,210)]"></div>
+                <div className="h-[2px] w-12 bg-emerald-500"></div>
+              </div>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {leaders.slice(1).map((leader, index) => (
+                <motion.div
+                  key={leader.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className="group relative"
+                >
+                  <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-xl font-bold text-white mb-1">{leader.name}</h3>
+                      <p className="text-[rgb(81,144,210)] mb-3">{leader.role}</p>
+                      <p className="text-gray-200 text-sm italic">"{leader.quote}"</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Expertise Cards */}
+          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Strategic Vision',
+                description: 'Pioneering innovative solutions and setting new industry standards through strategic leadership.',
+                icon: Target,
+                color: 'rgb(81,144,210)',
+              },
+              {
+                title: 'Technical Excellence',
+                description: 'Leveraging cutting-edge technology and engineering expertise for superior project delivery.',
+                icon: Shield,
+                color: 'rgb(16,185,129)',
+              },
+              {
+                title: 'Client Success',
+                description: 'Building lasting partnerships through exceptional service and unwavering commitment.',
+                icon: Users,
+                color: 'rgb(81,144,210)',
+              },
+            ].map((card, index) => (
               <motion.div
-                key={leader.id}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="group relative"
+                className="group relative overflow-hidden rounded-2xl"
               >
-                <div className="relative overflow-hidden rounded-2xl shadow-lg">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-full h-80 object-cover object-center group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-xl font-bold text-white mb-1">{leader.name}</h3>
-                    <p className="text-[rgb(81,144,210)] mb-3">{leader.role}</p>
-                    <p className="text-gray-200 text-sm italic mb-4">"{leader.quote}"</p>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setSelectedLeader(leader)}
-                      className="px-4 py-2 bg-[rgb(81,144,210)] text-white text-sm font-semibold rounded-lg hover:bg-emerald-400 transition-all duration-300"
-                    >
-                      View Profile
-                    </motion.button>
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 transform group-hover:scale-105 transition-transform duration-500"></div>
+                <div className="relative p-8 space-y-4">
+                  <div className="inline-block p-4 rounded-xl" style={{ backgroundColor: `${card.color}10` }}>
+                    <card.icon className="w-8 h-8" style={{ color: card.color }} />
                   </div>
+                  <h4 className="text-xl font-bold text-gray-900">{card.title}</h4>
+                  <p className="text-gray-600">{card.description}</p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Director's Message Section */}
-      <section className="py-24 sm:py-32 bg-gray-50 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-7xl mx-auto"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="space-y-6"
-                >
-                  <div className="inline-block">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2">Managing Director's Message</h2>
-                    <div className="h-1 w-1/3 bg-[rgb(81,144,210)]"></div>
-                  </div>
-                  
-                  <div className="prose max-w-none text-gray-600 space-y-4">
-                    <p className="text-base sm:text-lg font-medium">Dear Valued Clients, Partners, and Well-Wishers,</p>
-                    
-                    <p className="text-sm sm:text-base">At Manorath Infra, we don't just build structures—we build dreams, trust, and a future of excellence. Every project we undertake is a testament to our commitment to quality, innovation, and precision. Since our inception in 2017, we have strived to create spaces that stand the test of time while upholding the highest standards of engineering, safety, and sustainability.</p>
-                    
-                    <p className="text-sm sm:text-base">Our expertise spans residential and commercial buildings, bridge works, railway overpasses, reinforced earth walls, industrial sheds, and more. Beyond construction, our specialized services include structural engineering, interior design, land surveys, project costing, and quantity estimation, ensuring a seamless experience from conception to completion.</p>
-                    
-                    <blockquote className="text-base sm:text-lg italic border-l-4 border-[rgb(81,144,210)] pl-4 my-6">
-                      "The harder you work, the luckier you get"
-                    </blockquote>
-                    
-                    <p className="text-sm sm:text-base">As a self-made entrepreneur, my journey from a civil engineering graduate to the founder of Manorath Infra has been one of dedication, perseverance, and an unwavering belief in hard work and innovation. This philosophy has driven me to pioneer impactful projects and successfully bring ideas to life—right from conception to commercial stabilization.</p>
-                    
-                    <p className="text-sm sm:text-base">With a team of skilled professionals and state-of-the-art technology, Manorath Infra is committed to delivering excellence, reliability, and value in every endeavor. We take immense pride in transforming visions into landmarks that inspire generations to come.</p>
-                    
-                    <p className="text-sm sm:text-base">We look forward to building a future together</p>
-                  </div>
-
-                  <div className="mt-6 border-t border-gray-200 pt-6">
-                    <div className="flex items-center space-x-4">
-                      <motion.img
-                        initial={{ scale: 0 }}
-                        whileInView={{ scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
-                        src={dImage}
-                        alt="Harshit Sanchihar"
-                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[rgb(81,144,210)] object-cover"
-                      />
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Harshit Sanchihar</h3>
-                        <p className="text-base sm:text-lg text-[rgb(81,144,210)]">Managing Director, Manorath Infra</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="order-1 lg:order-2 relative"
-              >
-                <div className="relative">
-                  <img
-                   src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=2073"
-                    alt="Managing Director at construction site"
-                    className="rounded-2xl shadow-2xl w-full h-[500px] sm:h-[600px] object-cover"
-                  />
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                    viewport={{ once: true }}
-                    className="absolute inset-0 border-2 border-[rgb(81,144,210)] rounded-2xl transform translate-x-4 translate-y-4 -z-10"
-                  />
-                  
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent rounded-b-2xl">
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      whileInView={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.5 }}
-                      viewport={{ once: true }}
-                      className="flex items-center space-x-3"
-                    >
-                      <div className="h-1 w-12 bg-[rgb(81,144,210)]"></div>
-                      <p className="text-white text-xs sm:text-sm">Building Excellence Since 2017</p>
-                    </motion.div>
-                  </div>
-                </div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="absolute -left-4 top-1/2 transform -translate-y-1/2 bg-white p-4 sm:p-6 rounded-2xl shadow-xl max-w-[180px]"
-                >
-                  <div className="text-3xl sm:text-4xl font-bold text-[rgb(81,144,210)]">8+</div>
-                  <div className="text-gray-600 text-xs sm:text-sm">Years of Excellence</div>
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Profile Modal */}
-      <AnimatePresence>
-        {selectedLeader && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/50 backdrop-blur-sm"
-            onClick={() => setSelectedLeader(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-              onClick={e => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setSelectedLeader(null)}
-                className="absolute top-4 right-4 p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-              >
-                <X className="w-6 h-6 text-gray-600" />
-              </button>
-
-              <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="relative h-80 md:h-full">
-                  <img
-                    src={selectedLeader.image}
-                    alt={selectedLeader.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-60" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <h3 className="text-2xl font-bold text-white mb-1">{selectedLeader.name}</h3>
-                    <p className="text-[rgb(81,144,210)]">{selectedLeader.role}</p>
-                  </div>
-                </div>
-
-                <div className="p-6 md:p-8">
-                  <div className="prose max-w-none">
-                    <p className="text-gray-600 mb-6">{selectedLeader.details.bio}</p>
-                    
-                    <div className="space-y-4 mb-6">
-                      <div className="flex items-start">
-                        <Briefcase className="w-6 h-6 text-[rgb(81,144,210)] mr-3 flex-shrink-0 mt-1" />
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-1">Experience</h4>
-                          <p className="text-gray-600">{selectedLeader.details.experience}</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start">
-                        <Shield className="w-6 h-6 text-[rgb(81,144,210)] mr-3 flex-shrink-0 mt-1" />
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-1">Education</h4>
-                          <p className="text-gray-600">{selectedLeader.details.education}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="border-t pt-6 space-y-3">
-                      <div className="flex items-center text-gray-600">
-                        <Mail className="w-5 h-5 text-[rgb(81,144,210)] mr-3" />
-                        {selectedLeader.details.email}
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <Phone className="w-5 h-5 text-[rgb(81,144,210)] mr-3" />
-                        {selectedLeader.details.phone}
-                      </div>
-                      <div className="flex items-center text-gray-600">
-                        <MapPin className="w-5 h-5 text-[rgb(81,144,210)] mr-3" />
-                        {selectedLeader.details.location}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Join Us Section */}
       <section id="mission" className="relative py-24 sm:py-32 overflow-hidden">

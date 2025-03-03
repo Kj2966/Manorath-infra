@@ -29,6 +29,20 @@ export default {
         'cormorant': ['Cormorant Garamond', 'serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(10px, -10px)' },
+        },
+        moveX: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        }
+      },
+      animation: {
+        float: 'float 5s ease-in-out infinite',
+        moveX: 'moveX 15s linear infinite',
+      }
     },
   },
   plugins: [],
