@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Building2, Plane as Crane, Factory, HardHat, Ruler, Wrench, ArrowUpRight, Check, Clock, Users, Target, Shield, Award, BarChart, GitBranch as Workflow } from 'lucide-react';
-
+import { useNavigate } from 'react-router-dom';
 const Services = () => {
+  const navigate = useNavigate();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -490,6 +491,7 @@ const Services = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group px-6 sm:px-8 py-3 sm:py-4 bg-[rgb(81,144,210)] text-white text-base sm:text-lg font-semibold rounded-lg hover:bg-[rgb(81,144,210)]/90 transition-all duration-300 shadow-lg hover:shadow-[rgb(81,144,210)]/25 flex items-center mx-auto"
+              onClick={() => navigate('/contact')}
             >
               Contact Us Today
               <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
