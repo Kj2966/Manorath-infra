@@ -133,10 +133,7 @@ const Services = () => {
   ];
 
   const qualityStandards = [
-    {
-      title: "ISO Certified Process",
-      description: "Following internationally recognized construction and management standards"
-    },
+   
     {
       title: "Expert Team",
       description: "Highly qualified professionals with decades of combined experience"
@@ -446,7 +443,7 @@ const Services = () => {
                 <div className="flex items-center gap-3">
                   <Award className="w-8 h-8 text-[rgb(81,144,210)]" />
                   <div>
-                    <h4 className="font-semibold">ISO 9001:2015</h4>
+                    {/* <h4 className="font-semibold">ISO 9001:2015</h4> */}
                     <p className="text-sm text-gray-600">Certified Quality Management</p>
                   </div>
                 </div>

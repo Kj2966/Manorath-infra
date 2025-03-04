@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Shield, Target, Users, Leaf, ArrowUpRight, X, Briefcase, Mail, Phone, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import dImage from '../assets/img/mMI.jpg';
+import projectManagerImage from '../assets/img/projectManager.png';
 import harshitImage from '../assets/img/harshitImage.jpg'
 
 interface Leader {
@@ -45,10 +45,10 @@ interface MDProfile {
 const leaders: Leader[] = [
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Govind Seervi",
     role: "Project Manager",
     quote: "Every great building starts with a solid foundation of teamwork.",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=800",
+    image: projectManagerImage,
     details: {
       bio: "Michael specializes in sustainable construction practices and has implemented green building solutions across various projects.",
       experience: "10+ years managing large-scale commercial projects",
@@ -58,34 +58,21 @@ const leaders: Leader[] = [
       location: "Boston, MA"
     }
   },
-  {
-    id: 3,
-    name: "David Martinez",
-    role: "Site Supervisor",
-    quote: "Safety and quality are not just priorities, they're values.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
-    details: {
-      bio: "David's expertise in site safety and quality control has earned him multiple industry recognitions.",
-      experience: "15+ years of on-site supervision experience",
-      education: "B.S. in Construction Management from Texas A&M",
-      email: "david.martinez@example.com",
-      phone: "(555) 345-6789",
-      location: "Houston, TX"
-    }
-  },
+  
   {
     id: 4,
     name: "Emily Zhang",
-    role: "Partner & Chief Architect",
-    quote: "Architecture is where art meets engineering to create lasting impact.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
+    name: "Govind Seervi",
+    role: "Project Manager",
+    quote: "Every great building starts with a solid foundation of teamwork.",
+    image: projectManagerImage,
     details: {
-      bio: "Emily's innovative designs have won multiple architectural awards and recognition for sustainability.",
-      experience: "20+ years in architectural design and project planning",
-      education: "Master of Architecture from Harvard GSD",
-      email: "emily.zhang@example.com",
-      phone: "(555) 456-7890",
-      location: "New York, NY"
+      bio: "Michael specializes in sustainable construction practices and has implemented green building solutions across various projects.",
+      experience: "10+ years managing large-scale commercial projects",
+      education: "B.S. in Civil Engineering from MIT",
+      email: "michael.chen@example.com",
+      phone: "(555) 234-5678",
+      location: "Boston, MA"
     }
   }
 ];
@@ -97,7 +84,7 @@ const About = () => {
     threshold: 0.1,
   });
 
-  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
+  const [isMessageExpanded, setIsMessageExpanded] = useState(false);
 
   return (
     <div className="min-h-screen overflow-x-hidden">
@@ -472,7 +459,7 @@ const About = () => {
                   </p>
                   
                   <AnimatePresence>
-                    {selectedLeader?.id === 1 && (
+                    {isMessageExpanded && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
@@ -493,10 +480,10 @@ const About = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setSelectedLeader(selectedLeader?.id === 1 ? null : leaders[0])}
+                  onClick={() => setIsMessageExpanded(!isMessageExpanded)}
                   className="text-[rgb(81,144,210)] font-semibold flex items-center gap-2 hover:text-emerald-500 transition-colors"
                 >
-                  {selectedLeader?.id === 1 ? 'Read Less' : 'Read Full Message'}
+                  {isMessageExpanded ? 'Read Less' : 'Read Full Message'}
                   <ArrowUpRight className="w-5 h-5" />
                 </motion.button>
               </div>
@@ -541,7 +528,7 @@ const About = () => {
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/harshit-sanchihar-979988a9/"
                   target="_blank"
                   className="flex items-center gap-3 px-6 py-3 border-2 border-[rgb(81,144,210)] text-[rgb(81,144,210)] rounded-xl hover:bg-[rgb(81,144,210)] hover:text-white transition-all duration-300"
                 >

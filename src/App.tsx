@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast';
 import LoadingOptimizer from './components/LoadingOptimizer';
 import { Helmet } from 'react-helmet';
 import ScrollToTop from './components/ScrollToTop';
+import Sitemap from './Sitemap'; // Import the Sitemap component
 
 // Lazy load components
 const Home = lazy(() => import('./pages/Home'));
@@ -51,6 +52,7 @@ const App = () => {
               <Route path="/media" element={<Media />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/sitemap.xml" element={<Sitemap />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
