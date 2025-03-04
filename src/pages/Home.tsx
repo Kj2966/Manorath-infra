@@ -43,6 +43,13 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <Helmet>
+        <title>Manorath Infra - Excellence in Construction</title>
+        <meta name="description" content="Manorath Infra specializes in innovative construction solutions, delivering quality projects on time and within budget." />
+        <meta name="keywords" content="construction, building, infrastructure, residential, commercial, quality assurance , nathdwara , rajasthan , india, construction company, infrastructure company, construction services, construction company in nathdwara, construction company in rajasthan, construction company in india, construction company in Udaipur,bridges, roads, buildings, infrastructure, construction, engineering, architecture, design, project management, construction management, construction services, construction company, infrastructure company, construction company in Udaipur,bridges, roads, buildings, infrastructure, construction, engineering, architecture, design, project management, construction management, construction services, construction company, infrastructure company,shreenathji,pushtimarg,manorathinfra,manorath infra,manorath infra construction,manorath infra construction company,manorath infra construction services,manorath infra construction company in nathdwara,manorath infra construction company in rajasthan,manorath infra construction company in india,manorath infra construction company in Udaipur,manorath infra construction company in Rajasthan,manorath infra construction company in India,manorath infra construction company in Udaipur,manorath infra construction company in Rajasthan,manorath infra construction company in India" />
+        <meta property="og:title" content="Manorath Infra - Excellence in Construction" />
+        <meta property="og:description" content="Manorath Infra specializes in innovative construction solutions, delivering quality projects on time and within budget." />
+        <meta property="og:image" content="https://www.manorathinfra.com/image.jpg" />
+        <meta property="og:url" content="https://www.manorathinfra.com" />
         <script type="application/ld+json">
           {`
             {
@@ -50,7 +57,6 @@ const Home = () => {
               "@type": "Organization",
               "name": "Manorath Infra",
               "url": "https://www.manorathinfra.com",
-            
               "sameAs": [
                 "https://www.facebook.com/manorathinfra?mibextid=ZbWKwL",
                 "https://www.instagram.com/manorathinfra?igsh=MWxyNjloZ295d2h5eg=="
