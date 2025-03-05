@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Clock, Building, MessageSquare } from 'lucide-react';
 import toast from 'react-hot-toast';
-
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,10 +14,15 @@ const Contact = () => {
     company: '',
     projectType: 'residential',
   });
+  
+  const [loading, setLoading] = useState(false); // Loading state
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success('Thank you for your message! Our team will contact you shortly.');
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const resetForm = () => {
     setFormData({
       name: '',
       email: '',
@@ -29,9 +34,32 @@ const Contact = () => {
     });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true); // Set loading to true
+
+    const { name, email, phone, subject, company, projectType, message } = formData;
+
+    // Prepare the email data without a custom message body
+    const emailData = {
+        from_name: name,
+        from_email: email,
+        phone: phone,
+        company: company,
+        projectType: projectType,
+        message: message,
+    };
+
+    try {
+        await emailjs.send('service_u6vcln9', 'template_hd5bm2m', emailData, 'rXml34D8CjHXfX8P4'); // Ensure you use the correct User ID
+        toast.success('Thank you for your message! Our team will contact you shortly.');
+        resetForm(); // Reset the form after successful submission
+    } catch (error) {
+        toast.error('Failed to send message, please try again later.');
+        console.error('EmailJS Error:', error); // Log the error for debugging
+    } finally {
+        setLoading(false); // Reset loading state
+    }
   };
 
   const contactInfo = {
@@ -257,7 +285,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
+              <h2 className="text-4xl font-bold mb-4">Write Us</h2>
               <p className="text-gray-600">
                 Fill out the form below and our team will get back to you within 24 hours.
               </p>
@@ -385,10 +413,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full px-6 py-4 bg-[rgb(81,144,210)] text-white font-semibold rounded-lg hover:bg-[rgb(81,144,210)] transition-colors flex items-center justify-center text-lg"
+                disabled={loading} // Disable button while loading
+                className={`w-full px-6 py-4 ${loading ? 'bg-gray-400' : 'bg-[rgb(81,144,210)]'} text-white font-semibold rounded-lg hover:bg-[rgb(81,144,210)] transition-colors flex items-center justify-center text-lg`}
               >
-                <Send className="w-6 h-6 mr-2" />
-                Send Message
+                {loading ? 'Sending...' : <><Send className="w-6 h-6 mr-2" /> Send Message</>}
               </button>
             </motion.form>
           </div>

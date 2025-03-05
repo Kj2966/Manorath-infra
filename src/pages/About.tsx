@@ -61,7 +61,7 @@ const leaders: Leader[] = [
   
   {
     id: 4,
-    name: "Emily Zhang",
+    
     name: "Govind Seervi",
     role: "Project Manager",
     quote: "Every great building starts with a solid foundation of teamwork.",
@@ -87,7 +87,7 @@ const About = () => {
   const [isMessageExpanded, setIsMessageExpanded] = useState(false);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-hidden">
       {/* Hero Section */}
       <section className="relative h-[100svh] overflow-hidden">
         <div className="absolute inset-0">
@@ -148,67 +148,8 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Mission & Vision Section */}
-      <section className="py-24 sm:py-32 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2070"
-                alt="Vision"
-                className="rounded-2xl shadow-2xl"
-              />
-              <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="absolute inset-0 border-2 border-[rgb(81,144,210)] rounded-2xl transform -translate-x-4 -translate-y-4 -z-10"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="space-y-6"
-            >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">Mission & Vision</h2>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-bold text-[rgb(81,144,210)] mb-3">Our Vision</h3>
-                  <p className="text-gray-600 text-base">
-                    At Manorath Infra, our vision is to be a leading force in the construction and infrastructure industry, known for our quality, innovation, and sustainability. We strive to build landmark structures that not only meet but exceed client expectations, contributing to the development of modern, resilient, and future-ready spaces. Through our dedication to excellence and integrity, we aim to transform dreams into reality, shaping skylines and communities for generations to come.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-[rgb(81,144,210)] mb-3">Our Mission</h3>
-                  <p className="text-gray-600 text-base leading-relaxed">
-                    ✔️ To deliver high-quality construction solutions with precision, efficiency, and innovation.<br/>
-                    ✔️ To ensure sustainability and safety in every project, embracing eco-friendly practices.<br/>
-                    ✔️ To leverage cutting-edge technology and engineering expertise.<br/>
-                    ✔️ To build long-term relationships based on trust and transparency.<br/>
-                    ✔️ To empower our workforce with a culture of excellence.<br/>
-                    ✔️ To contribute to nation-building and infrastructure development.<br/>
-                    ✔️ At Manorath Infra, we don't just construct buildings—we create lasting legacies.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Company Overview/Story */}
-      <section className="py-24 sm:py-32 bg-white" ref={ref} id='ourStory'>
+       {/* Company Overview/Story */}
+       <section className="py-24 sm:py-32 bg-white" ref={ref} id='ourStory'>
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
             <motion.div
@@ -223,7 +164,7 @@ const About = () => {
                 <p className="text-gray-600 text-lg">
                   Since our inception in 2017, we've been at the forefront of construction innovation, 
                   delivering exceptional projects that stand as testaments to our commitment to quality 
-                  and excellence.
+                  and excellence. Our company is proudly based in Nathdwara, Rajasthan, a region known for its rich cultural heritage and commitment to excellence.
                 </p>
                 <p className="text-gray-600 text-lg">
                   Our journey has been marked by groundbreaking achievements, sustainable practices, 
@@ -288,6 +229,65 @@ const About = () => {
           </div>
         </div>
       </section>
+      {/* Mission & Vision Section */}
+      <section className="py-24 sm:py-32 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2070"
+                alt="Vision"
+                className="rounded-2xl shadow-2xl"
+              />
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="absolute inset-0 border-2 border-[rgb(81,144,210)] rounded-2xl transform -translate-x-4 -translate-y-4 -z-10"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">Mission & Vision</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold text-[rgb(81,144,210)] mb-3">Our Vision</h3>
+                  <p className="text-gray-600 text-base">
+                    At Manorath Infra, our vision is to be a leading force in the construction and infrastructure industry, known for our quality, innovation, and sustainability. We strive to build landmark structures that not only meet but exceed client expectations, contributing to the development of modern, resilient, and future-ready spaces. Through our dedication to excellence and integrity, we aim to transform dreams into reality, shaping skylines and communities for generations to come.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[rgb(81,144,210)] mb-3">Our Mission</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">
+                    ✔️ To deliver high-quality construction solutions with precision, efficiency, and innovation.<br/>
+                    ✔️ To ensure sustainability and safety in every project, embracing eco-friendly practices.<br/>
+                    ✔️ To leverage cutting-edge technology and engineering expertise.<br/>
+                    ✔️ To build long-term relationships based on trust and transparency.<br/>
+                    ✔️ To empower our workforce with a culture of excellence.<br/>
+                    ✔️ To contribute to nation-building and infrastructure development.<br/>
+                    ✔️ At Manorath Infra, we don't just construct buildings—we create lasting legacies.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+     
 
       {/* Core Values */}
       <section className="py-24 sm:py-32 bg-gray-50">

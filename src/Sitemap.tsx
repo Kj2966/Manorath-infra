@@ -2,15 +2,15 @@ import React from 'react';
 
 const Sitemap = () => {
   const pages = [
-    { path: '/', lastModified: '2023-03-01', priority: '1.0', changefreq: 'daily' },
-    { path: '/about', lastModified: '2023-03-01', priority: '0.8', changefreq: 'monthly' },
-    { path: '/services', lastModified: '2023-03-01', priority: '0.5', changefreq: 'monthly' },
-    { path: '/projects', lastModified: '2023-03-01', priority: '0.5', changefreq: 'monthly' },
-    { path: '/investors', lastModified: '2023-03-01', priority: '0.5', changefreq: 'monthly' },
-    { path: '/media', lastModified: '2023-03-01', priority: '0.5', changefreq: 'monthly' },
-    { path: '/careers', lastModified: '2023-03-01', priority: '0.5', changefreq: 'monthly' },
-    { path: '/contact', lastModified: '2023-03-01', priority: '0.5', changefreq: 'monthly' },
-    { path: '/not-found', lastModified: '2023-03-01', priority: '0.1', changefreq: 'never' },
+    { path: '/', lastModified: '2025-03-04', priority: '1.0', changefreq: 'daily' },
+    { path: '/about', lastModified: '2025-03-04', priority: '0.8', changefreq: 'monthly' },
+    { path: '/services', lastModified: '2025-03-04', priority: '0.5', changefreq: 'monthly' },
+    { path: '/projects', lastModified: '2025-03-04', priority: '0.5', changefreq: 'monthly' },
+    { path: '/investors', lastModified: '2025-03-04', priority: '0.5', changefreq: 'monthly' },
+    { path: '/media', lastModified: '2025-03-04', priority: '0.5', changefreq: 'monthly' },
+    { path: '/careers', lastModified: '2025-03-04', priority: '0.5', changefreq: 'monthly' },
+    { path: '/contact', lastModified: '2025-03-04', priority: '0.5', changefreq: 'monthly' },
+    { path: '/not-found', lastModified: '2025-03-04', priority: '0.1', changefreq: 'never' },
   ];
 
   const generateSitemap = () => {
